@@ -10,39 +10,27 @@
   --animation-duration: 3s;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 1100px) {
   .MagicCurtainItem {
     --animation-duration: 3.5s;
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1500px) {
   .MagicCurtainItem {
     --animation-duration: 4s;
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1800px) {
   .MagicCurtainItem {
     --animation-duration: 4.5s;
   }
 }
 
-@media (min-width: 1500px) {
-  .MagicCurtainItem {
-    --animation-duration: 5s;
-  }
-}
-
-@media (min-width: 1800px) {
-  .MagicCurtainItem {
-    --animation-duration: 5.5s;
-  }
-}
-
 @media (min-width: 2100px) {
   .MagicCurtainItem {
-    --animation-duration: 6s;
+    --animation-duration: 5s;
   }
 }
 
@@ -53,7 +41,7 @@
 }
 
 .MagicCurtainItem[data-state='hidden'] {
-  pointer-events: none;
+  display: none;
 }
 
 .MagicCurtainItem[data-state='visible'] {
@@ -64,76 +52,39 @@
 .MagicCurtainItem[data-state='hiding'] {
   position: relative;
   z-index: 1;
-
-  /* we default `--gradient-angle` to `90deg` for browsers that don't support @property */
-  mask-image: linear-gradient(
-    var(--gradient-angle, 90deg),
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0) 50%
-  );
-
-  mask-size: 230% 100%;
   animation: mask var(--animation-duration) ease-in-out;
 }
 
 .MagicCurtainItem[data-state='hiding'][data-animation-direction='reverse'] {
-  mask-image: linear-gradient(
-    var(--gradient-angle, 90deg),
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 1) 50%
-  );
-
   animation: mask-reverse var(--animation-duration) ease-in-out;
 }
 
 @keyframes mask {
   0% {
-    --gradient-angle: 95deg;
-    mask-position: 0% 0%;
-    pointer-events: auto;
+    clip-path: polygon(0 0, 105% 0, 100% 100%, 0 100%);
   }
   25% {
-    --gradient-angle: 95deg;
-    mask-position: 0% 0%;
-    pointer-events: auto;
-  }
-  74.99% {
-    pointer-events: none;
+    clip-path: polygon(0 0, 105% 0, 100% 100%, 0 100%);
   }
   75% {
-    --gradient-angle: 85deg;
-    mask-position: 100% 0%;
-    pointer-events: none;
+    clip-path: polygon(0 0, -5% 0, 0 100%, 0 100%);
   }
   100% {
-    --gradient-angle: 85deg;
-    mask-position: 100% 0%;
-    pointer-events: none;
+    clip-path: polygon(0 0, -5% 0, 0 100%, 0 100%);
   }
 }
 
 @keyframes mask-reverse {
   0% {
-    --gradient-angle: 85deg;
-    mask-position: 100% 0%;
-    pointer-events: auto;
+    clip-path: polygon(-5% 0, 100% 0, 100% 100%, 0 100%);
   }
   25% {
-    --gradient-angle: 85deg;
-    mask-position: 100% 0%;
-    pointer-events: auto;
-  }
-  74.99% {
-    pointer-events: none;
+    clip-path: polygon(-5% 0, 100% 0, 100% 100%, 0 100%);
   }
   75% {
-    --gradient-angle: 95deg;
-    mask-position: 0% 0%;
-    pointer-events: none;
+    clip-path: polygon(105% 0, 200% 0, 200% 100%, 100% 100%);
   }
   100% {
-    --gradient-angle: 95deg;
-    mask-position: 0% 0%;
-    pointer-events: none;
+    clip-path: polygon(105% 0, 200% 0, 200% 100%, 100% 100%);
   }
 }

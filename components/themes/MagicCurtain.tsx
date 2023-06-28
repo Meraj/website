@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styles from './MagicCurtain.module.css';
 import { createContext } from '@radix-ui/react-context';
-import { getGPUTier } from 'detect-gpu';
 
 type State = 'visible' | 'hidden' | 'hiding' | 'revealing';
 
@@ -19,50 +18,36 @@ const MagicCurtainRoot = ({ children }: React.PropsWithChildren<{}>) => {
   const itemsRef = React.useRef<MagicCurtainItem[]>([]);
   const ref = React.useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
-    let destructor: () => void | undefined = undefined;
-    itemsRef.current[0]?.setState('visible');
+  useIsomorphicLayoutEffect(() => {
+    itemsRef.current[0]?.setState('hiding');
+    itemsRef.current[1]?.setState('revealing');
 
-    getGPUTier().then((result) => {
-      if (result.isMobile || result.tier < 3) {
+    const handleAnimationEnd = (event: AnimationEvent) => {
+      if (!(event.target instanceof HTMLElement)) {
         return;
       }
 
-      itemsRef.current[0]?.setState('hiding');
-      itemsRef.current[1]?.setState('revealing');
+      const thisIndex = itemsRef.current.map((item) => item.ref.current).indexOf(event.target);
+      const nextIndex = thisIndex + 1 === itemsRef.current.length ? 0 : thisIndex + 1;
+      const afterNextIndex = nextIndex + 1 === itemsRef.current.length ? 0 : nextIndex + 1;
+      itemsRef.current[thisIndex].setState('hidden');
+      itemsRef.current[nextIndex].setState('hiding');
+      itemsRef.current[afterNextIndex].setState('revealing');
+    };
 
-      const handleAnimationEnd = (event: AnimationEvent) => {
-        if (!(event.target instanceof HTMLElement)) {
-          return;
-        }
+    itemsRef.current.forEach((item, i) => {
+      if (i % 2) {
+        item.setAnimationDirection('reverse');
+      }
 
-        const thisIndex = itemsRef.current.map((item) => item.ref.current).indexOf(event.target);
-        const nextIndex = thisIndex + 1 === itemsRef.current.length ? 0 : thisIndex + 1;
-        const afterNextIndex = nextIndex + 1 === itemsRef.current.length ? 0 : nextIndex + 1;
-
-        requestAnimationFrame(() => {
-          itemsRef.current[thisIndex].setState('hidden');
-          itemsRef.current[nextIndex].setState('hiding');
-          itemsRef.current[afterNextIndex].setState('revealing');
-        });
-      };
-
-      itemsRef.current.forEach((item, i) => {
-        if (i % 2) {
-          item.setAnimationDirection('reverse');
-        }
-
-        item.ref.current.addEventListener('animationend', handleAnimationEnd);
-      });
-
-      destructor = () => {
-        itemsRef.current.forEach((item) => {
-          item.ref.current?.removeEventListener('animationend', handleAnimationEnd);
-        });
-      };
+      item.ref.current.addEventListener('animationend', handleAnimationEnd);
     });
 
-    return () => destructor?.();
+    return () => {
+      itemsRef.current.forEach((item) => {
+        item.ref.current?.removeEventListener('animationend', handleAnimationEnd);
+      });
+    };
   }, []);
 
   return (
@@ -80,7 +65,7 @@ const MagicCurtainItem = ({ children, ...props }: React.ComponentPropsWithoutRef
   const [state, setState] = React.useState<State>('hidden');
   const [animationDirection, setAnimationDirection] = React.useState('normal');
 
-  React.useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const item = { ref, setState, setAnimationDirection };
     context.itemsRef.current.push(item);
 
@@ -105,6 +90,9 @@ const MagicCurtainItem = ({ children, ...props }: React.ComponentPropsWithoutRef
     </div>
   );
 };
+
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
 
 export const MagicCurtain = {
   Root: MagicCurtainRoot,
