@@ -52,6 +52,10 @@
   initial-value: 90deg;
 }
 
+.MagicCurtainItem[data-state='hidden'] {
+  pointer-events: none;
+}
+
 .MagicCurtainItem[data-state='hiding'] {
   position: relative;
   z-index: 1;
@@ -74,24 +78,57 @@
     rgba(0, 0, 0, 1) 50%
   );
 
-  animation-direction: reverse;
+  animation: mask-reverse var(--animation-duration) ease-in-out;
 }
 
 @keyframes mask {
   0% {
     --gradient-angle: 95deg;
     mask-position: 0% 0%;
+    pointer-events: auto;
   }
   25% {
     --gradient-angle: 95deg;
     mask-position: 0% 0%;
+    pointer-events: auto;
+  }
+  74.99% {
+    pointer-events: none;
   }
   75% {
     --gradient-angle: 85deg;
     mask-position: 100% 0%;
+    pointer-events: none;
   }
   100% {
     --gradient-angle: 85deg;
     mask-position: 100% 0%;
+    pointer-events: none;
+  }
+}
+
+@keyframes mask-reverse {
+  0% {
+    --gradient-angle: 85deg;
+    mask-position: 100% 0%;
+    pointer-events: auto;
+  }
+  25% {
+    --gradient-angle: 85deg;
+    mask-position: 100% 0%;
+    pointer-events: auto;
+  }
+  74.99% {
+    pointer-events: none;
+  }
+  75% {
+    --gradient-angle: 95deg;
+    mask-position: 0% 0%;
+    pointer-events: none;
+  }
+  100% {
+    --gradient-angle: 95deg;
+    mask-position: 0% 0%;
+    pointer-events: none;
   }
 }
