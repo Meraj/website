@@ -112,6 +112,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  padding-right: 10em;
+  margin-right: -10em;
 }
 
 .ThemesHeroTaglineText {
@@ -188,7 +191,7 @@
     transparent var(--themes-hero-showcase-dot-r2)
   );
 
-  background-color: var(--mauve-a1);
+  background-color: var(--mauve-1);
 
   /* Scale the dots together with the demo */
   background-size: calc(16px * var(--themes-hero-showcase-scale))

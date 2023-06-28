@@ -244,7 +244,7 @@ export const ExampleDashboard = () => (
 
         <Flex gap="3" mb="5">
           <TextField tabIndex={-1} size="2" placeholder="Email address" style={{ flexShrink: 1 }} />
-          <Button tabIndex={-1} size="2" color="indigo">
+          <Button tabIndex={-1} size="2">
             Invite
           </Button>
         </Flex>

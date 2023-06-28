@@ -1,7 +1,12 @@
 import * as React from 'react';
 import styles from './ThemesHero.module.css';
 
-export const ThemesHero = ({ children }: React.PropsWithChildren<{}>) => {
+interface ThemesHeroProps {
+  children?: React.ReactNode;
+  title?: string;
+}
+
+export const ThemesHero = ({ children, title }: ThemesHeroProps) => {
   const heroShowcaseScrollRef = React.useRef<HTMLDivElement>(null);
 
   useIsomorphicLayoutEffect(() => {
@@ -36,7 +41,7 @@ export const ThemesHero = ({ children }: React.PropsWithChildren<{}>) => {
       <div className={styles.ThemesHeroContent}>
         <div className={styles.ThemesHeroTagline}>
           <div className={styles.ThemesHeroTaglineInner}>
-            <h1 className={styles.ThemesHeroTaglineTitle}>Build faster</h1>
+            <h1 className={styles.ThemesHeroTaglineTitle}>{title}</h1>
 
             <p className={styles.ThemesHeroTaglineText}>
               Configurable component library from the Radix team. Move quickly with a suite of

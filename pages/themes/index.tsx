@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { ThemesHeader } from '@components/ThemesHeader';
 import { ThemesHero } from '@components/themes/ThemesHero';
 import { ExampleDashboard } from '@components/themes/ExampleDashboard';
+import { MagicCurtain } from '@components/themes/MagicCurtain';
 
 export default function ThemesHome() {
   return (
@@ -13,14 +14,56 @@ export default function ThemesHome() {
         <meta name="theme-color" content="#FDFCFD" />
       </Head>
 
-      <ThemesHeader />
-      <ThemesHero>
-        <ThemeConfig grayScale="mauve">
-          <Provider>
-            <ExampleDashboard />
-          </Provider>
-        </ThemeConfig>
-      </ThemesHero>
+      <MagicCurtain.Root>
+        <MagicCurtain.Item>
+          <div className="light-theme" style={{ background: 'none' }}>
+            <ThemesHeader />
+            <ThemesHero title="Build faster">
+              <ThemeConfig grayScale="mauve">
+                <Provider>
+                  <ExampleDashboard />
+                </Provider>
+              </ThemeConfig>
+            </ThemesHero>
+          </div>
+        </MagicCurtain.Item>
+        <MagicCurtain.Item>
+          <div className="dark-theme" style={{ background: 'none' }}>
+            <ThemesHeader />
+            <ThemesHero title="Build better">
+              <ThemeConfig accentScale="red" grayScale="mauve">
+                <Provider>
+                  <ExampleDashboard />
+                </Provider>
+              </ThemeConfig>
+            </ThemesHero>
+          </div>
+        </MagicCurtain.Item>
+        <MagicCurtain.Item>
+          <div className="light-theme" style={{ background: 'none' }}>
+            <ThemesHeader />
+            <ThemesHero title="Build hotter">
+              <ThemeConfig grayScale="mauve">
+                <Provider>
+                  <ExampleDashboard />
+                </Provider>
+              </ThemeConfig>
+            </ThemesHero>
+          </div>
+        </MagicCurtain.Item>
+        <MagicCurtain.Item>
+          <div className="dark-theme" style={{ background: 'none' }}>
+            <ThemesHeader />
+            <ThemesHero title="Build cooler">
+              <ThemeConfig grayScale="mauve">
+                <Provider>
+                  <ExampleDashboard />
+                </Provider>
+              </ThemeConfig>
+            </ThemesHero>
+          </div>
+        </MagicCurtain.Item>
+      </MagicCurtain.Root>
     </>
   );
 }
