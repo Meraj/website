@@ -1,4 +1,4 @@
-.PageRoot {
+.ThemesHeroRoot {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -7,93 +7,93 @@
   overflow: hidden;
 
   /* Scaling multiplier for the demo area */
-  --page-showcase-scale: calc(10 / 16);
-  --page-showcase-base-width: 1760px;
+  --themes-hero-showcase-scale: calc(10 / 16);
+  --themes-hero-showcase-base-width: 1760px;
 }
 
 @media (min-width: 500px) {
-  .PageRoot {
-    --page-showcase-scale: calc(11 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(11 / 16);
   }
 }
 
 @media (min-width: 500px) {
-  .PageRoot {
-    --page-showcase-scale: calc(12 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(12 / 16);
   }
 }
 
 @media (min-width: 600px) {
-  .PageRoot {
-    --page-showcase-scale: calc(13 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(13 / 16);
   }
 }
 
 @media (min-width: 700px) {
-  .PageRoot {
-    --page-showcase-scale: calc(14 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(14 / 16);
   }
 }
 
 @media (min-width: 800px) {
-  .PageRoot {
-    --page-showcase-scale: 1;
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: 1;
   }
 }
 
 @media (min-width: 1000px) {
-  .PageRoot {
-    --page-showcase-scale: calc(10 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(10 / 16);
   }
 }
 
 @media (min-width: 1900px) and (min-height: 800px) {
-  .PageRoot {
-    --page-showcase-scale: calc(12 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(12 / 16);
   }
 }
 
 @media (min-width: 2200px) and (min-height: 800px) {
-  .PageRoot {
-    --page-showcase-scale: calc(13 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(13 / 16);
   }
 }
 
 @media (min-width: 2400px) and (min-height: 800px) {
-  .PageRoot {
-    --page-showcase-scale: calc(15 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(15 / 16);
   }
 }
 
 @media (min-width: 2700px) and (min-height: 800px) {
-  .PageRoot {
-    --page-showcase-scale: 1;
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: 1;
   }
 }
 
 @media (min-width: 3000px) and (min-height: 1000px) {
-  .PageRoot {
-    --page-showcase-scale: calc(18 / 16);
+  .ThemesHeroRoot {
+    --themes-hero-showcase-scale: calc(18 / 16);
   }
 }
 
-.PageRoot ::selection {
+.ThemesHeroRoot ::selection {
   background-color: hsla(225, 98.6%, 46.4%, 0.15);
 }
 
-.PageContent {
+.ThemesHeroContent {
   display: flex;
   flex-grow: 1;
   flex-shrink: 0;
 }
 
-.PageHero {
+.ThemesHeroTagline {
   color: var(--indigo-12);
   box-sizing: border-box;
   margin-top: 80px;
 }
 
-.PageHeroTitle {
+.ThemesHeroTaglineTitle {
   font-family: 'Untitled Sans', sans-serif;
   font-size: 280em;
   font-weight: 500;
@@ -114,7 +114,7 @@
   background-clip: text;
 }
 
-.PageHeroText {
+.ThemesHeroTaglineText {
   font-size: max(30em, 22px);
   font-weight: 500;
   font-family: Untitled Sans, sans-serif;
@@ -122,7 +122,7 @@
   line-height: 1.4;
 }
 
-.PageHeroButton {
+.ThemesHeroTaglineButton {
   font-size: max(20em, 15px);
   font-weight: 500;
   font-family: Untitled Sans, sans-serif;
@@ -140,15 +140,15 @@
   white-space: nowrap;
 }
 
-:global(.dark-theme) .PageHeroButton {
+:global(.dark-theme) .ThemesHeroTaglineButton {
   color: var(--blue-1);
 }
 
-.PageHeroButtonArrow {
+.ThemesHeroTaglineButtonArrow {
   display: block;
 }
 
-.PageHeroButtonArrow::before {
+.ThemesHeroTaglineButtonArrow::before {
   content: '->';
   display: block;
   font-family: 'Inter', sans-serif;
@@ -157,12 +157,12 @@
   margin-right: -0.3em;
 }
 
-.PageShowcase {
+.ThemesHeroShowcase {
   position: relative;
   user-select: none;
 }
 
-.PageShowcase::before {
+.ThemesHeroShowcase::before {
   position: absolute;
   pointer-events: none;
   z-index: -1;
@@ -179,23 +179,24 @@
    * Radii that define the dots in the pattern scale inversely to the showcase scaling
    * factor with certain limits that maintain a balanced visual appearance.
    */
-  --page-showcase-dot-r1: max(min(calc(10% / var(--page-showcase-scale)), 11%), 10%);
-  --page-showcase-dot-r2: max(min(calc(12% / var(--page-showcase-scale)), 14%), 12%);
+  --themes-hero-showcase-dot-r1: max(min(calc(10% / var(--themes-hero-showcase-scale)), 11%), 10%);
+  --themes-hero-showcase-dot-r2: max(min(calc(12% / var(--themes-hero-showcase-scale)), 14%), 12%);
 
   /* Render the dot pattern */
   background-image: radial-gradient(
-    var(--mauve-a6) var(--page-showcase-dot-r1),
-    transparent var(--page-showcase-dot-r2)
+    var(--mauve-a6) var(--themes-hero-showcase-dot-r1),
+    transparent var(--themes-hero-showcase-dot-r2)
   );
 
   background-color: var(--mauve-a1);
 
   /* Scale the dots together with the demo */
-  background-size: calc(16px * var(--page-showcase-scale)) calc(16px * var(--page-showcase-scale));
+  background-size: calc(16px * var(--themes-hero-showcase-scale))
+    calc(16px * var(--themes-hero-showcase-scale));
 }
 
-.PageShowcaseInnerScaled {
-  transform: scale(var(--page-showcase-scale));
+.ThemesHeroShowcaseInnerScaled {
+  transform: scale(var(--themes-hero-showcase-scale));
 }
 
 /* * * * * * * * * * * * * * * * * * * */
@@ -205,50 +206,52 @@
 /* * * * * * * * * * * * * * * * * * * */
 
 @media (max-width: 999.99px) {
-  .PageRoot {
+  .ThemesHeroRoot {
     font-size: 0.13vw;
   }
 
-  .PageContent {
+  .ThemesHeroContent {
     flex-direction: column;
   }
 
-  .PageHero {
+  .ThemesHeroTagline {
     text-align: center;
     padding: 4vw;
   }
 
-  .PageShowcase {
+  .ThemesHeroShowcase {
     position: relative;
-    --page-showcase-padding: 48px;
+    --themes-hero-showcase-padding: 48px;
   }
 
-  .PageShowcase::-webkit-scrollbar {
+  .ThemesHeroShowcase::-webkit-scrollbar {
     display: none;
     width: 0;
   }
 
-  .PageShowcase::before {
-    /* "Spread" the background pattern from top center of .PageShowcase element */
+  .ThemesHeroShowcase::before {
+    /* "Spread" the background pattern from top center of .ThemesHeroShowcase element */
     top: 0;
     left: 50%;
     background-position-x: center;
     background-position-y: calc(
-      (var(--page-showcase-padding) - 16px / 2) * var(--page-showcase-scale)
+      (var(--themes-hero-showcase-padding) - 16px / 2) * var(--themes-hero-showcase-scale)
     );
   }
 
-  .PageShowcaseInner {
+  .ThemesHeroShowcaseInner {
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-width: none;
     scroll-snap-type: x proximity;
-    height: calc((1550px + var(--page-showcase-padding) * 2) * var(--page-showcase-scale));
+    height: calc(
+      (1550px + var(--themes-hero-showcase-padding) * 2) * var(--themes-hero-showcase-scale)
+    );
   }
 
-  .PageShowcaseInnerScaled {
+  .ThemesHeroShowcaseInnerScaled {
     display: table;
-    padding: var(--page-showcase-padding);
+    padding: var(--themes-hero-showcase-padding);
     transform-origin: top left;
   }
 }
@@ -260,16 +263,16 @@
 /* * * * * * * * * * * * * * * * * * * */
 
 @media (min-width: 1000px) {
-  .PageRoot {
+  .ThemesHeroRoot {
     /* 1em is no smaller than 0.4px and no larger than 1px, 0.05vw, or 0.1vh */
     font-size: max(0.4px, min(1px, 0.05vw, 0.1vh));
   }
 
-  .PageContent {
+  .ThemesHeroContent {
     align-items: stretch;
   }
 
-  .PageHero {
+  .ThemesHeroTagline {
     flex-shrink: 0;
 
     /* The hero width is between 320px and 800px */
@@ -284,33 +287,33 @@
     margin-bottom: 62.5em;
   }
 
-  .PageHero {
+  .ThemesHeroTagline {
     display: flex;
   }
 
-  .PageShowcase {
+  .ThemesHeroShowcase {
     /* Set static width as actual content is positioned absolutely */
-    width: calc(var(--page-showcase-base-width) * var(--page-showcase-scale));
+    width: calc(var(--themes-hero-showcase-base-width) * var(--themes-hero-showcase-scale));
 
     /* Push self away from the right edge when there's space */
     margin-right: auto;
   }
 
-  .PageShowcase::before {
-    /* "Spread" the background pattern from center left of .PageShowcase element */
+  .ThemesHeroShowcase::before {
+    /* "Spread" the background pattern from center left of .ThemesHeroShowcase element */
     background-position: 50% calc(50% + 0.5px);
     top: 50%;
     left: 0;
   }
 
-  .PageShowcaseInner {
+  .ThemesHeroShowcaseInner {
     overflow: hidden;
     position: relative;
     width: 100%;
     height: 100%;
   }
 
-  .PageShowcaseInnerScaled {
+  .ThemesHeroShowcaseInnerScaled {
     position: absolute;
     inset: 0;
     display: flex;
@@ -320,7 +323,7 @@
 }
 
 @media (min-width: 1000px) and (min-height: 700px) {
-  .PageHero {
+  .ThemesHeroTagline {
     align-items: center;
 
     /* Visually center the hero */

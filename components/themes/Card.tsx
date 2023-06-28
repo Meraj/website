@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import styles from './card.module.css';
+import styles from './Card.module.css';
 
 interface CardOwnProps {
   ghost?: boolean;
