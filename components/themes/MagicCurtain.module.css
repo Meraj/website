@@ -56,6 +56,11 @@
   pointer-events: none;
 }
 
+.MagicCurtainItem[data-state='visible'] {
+  position: relative;
+  z-index: 1;
+}
+
 .MagicCurtainItem[data-state='hiding'] {
   position: relative;
   z-index: 1;
