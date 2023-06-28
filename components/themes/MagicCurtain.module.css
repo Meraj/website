@@ -24,8 +24,19 @@
     rgba(0, 0, 0, 1) 50%,
     rgba(0, 0, 0, 0) 50%
   );
+
   mask-size: 230% 100%;
   animation: mask 6s ease-in-out;
+}
+
+.MagicCurtainItem[data-state='hiding'][data-animation-direction='reverse'] {
+  mask-image: linear-gradient(
+    var(--gradient-angle, 90deg),
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 50%
+  );
+
+  animation-direction: reverse;
 }
 
 @keyframes mask {

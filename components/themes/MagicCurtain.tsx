@@ -7,6 +7,7 @@ type State = 'hidden' | 'hiding' | 'revealing';
 interface MagicCurtainItem {
   ref: React.RefObject<HTMLElement>;
   setState: (state: State) => void;
+  setAnimationDirection: (direction: string) => void;
 }
 
 const [MagicCurtainProvider, useMagicCurtainContext] = createContext<{
@@ -21,24 +22,27 @@ const MagicCurtainRoot = ({ children }: React.PropsWithChildren<{}>) => {
     itemsRef.current[0]?.setState('hiding');
     itemsRef.current[1]?.setState('revealing');
 
-    console.log(itemsRef.current);
-
-    const length = itemsRef.current.length;
-
     const handleAnimationEnd = (event: AnimationEvent) => {
       if (!(event.target instanceof HTMLElement)) {
         return;
       }
 
       const thisIndex = itemsRef.current.map((item) => item.ref.current).indexOf(event.target);
-      const nextIndex = thisIndex + 1 === length ? 0 : thisIndex + 1;
-      const afterNextIndex = nextIndex + 1 === length ? 0 : nextIndex + 1;
-      itemsRef.current[thisIndex].setState('hidden');
-      itemsRef.current[nextIndex].setState('hiding');
-      itemsRef.current[afterNextIndex].setState('revealing');
+      const nextIndex = thisIndex + 1 === itemsRef.current.length ? 0 : thisIndex + 1;
+      const afterNextIndex = nextIndex + 1 === itemsRef.current.length ? 0 : nextIndex + 1;
+
+      requestAnimationFrame(() => {
+        itemsRef.current[thisIndex].setState('hidden');
+        itemsRef.current[nextIndex].setState('hiding');
+        itemsRef.current[afterNextIndex].setState('revealing');
+      });
     };
 
-    itemsRef.current.forEach((item) => {
+    itemsRef.current.forEach((item, i) => {
+      if (i % 2) {
+        item.setAnimationDirection('reverse');
+      }
+
       item.ref.current.addEventListener('animationend', handleAnimationEnd);
     });
 
@@ -62,9 +66,10 @@ const MagicCurtainItem = ({ children, ...props }: React.ComponentPropsWithoutRef
   const context = useMagicCurtainContext('MagicCurtain');
   const ref = React.useRef<HTMLDivElement>(null);
   const [state, setState] = React.useState<State>('hidden');
+  const [animationDirection, setAnimationDirection] = React.useState('normal');
 
   React.useEffect(() => {
-    const item = { ref, setState };
+    const item = { ref, setState, setAnimationDirection };
     context.itemsRef.current.push(item);
 
     return () => {
@@ -77,7 +82,13 @@ const MagicCurtainItem = ({ children, ...props }: React.ComponentPropsWithoutRef
   }, []);
 
   return (
-    <div data-state={state} ref={ref} className={styles.MagicCurtainItem} {...props}>
+    <div
+      data-animation-direction={animationDirection}
+      data-state={state}
+      ref={ref}
+      className={styles.MagicCurtainItem}
+      {...props}
+    >
       {state === 'hidden' ? null : children}
     </div>
   );
