@@ -300,6 +300,9 @@
 
     /* Push self away from the right edge when there's space */
     margin-right: auto;
+
+    /* Header offset */
+    margin-top: 64px;
   }
 
   .ThemesHeroShowcase::before {

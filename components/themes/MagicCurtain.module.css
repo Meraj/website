@@ -6,6 +6,44 @@
   position: absolute;
   z-index: 0;
   inset: 0;
+
+  --animation-duration: 3s;
+}
+
+@media (min-width: 500px) {
+  .MagicCurtainItem {
+    --animation-duration: 3.5s;
+  }
+}
+
+@media (min-width: 800px) {
+  .MagicCurtainItem {
+    --animation-duration: 4s;
+  }
+}
+
+@media (min-width: 1100px) {
+  .MagicCurtainItem {
+    --animation-duration: 4.5s;
+  }
+}
+
+@media (min-width: 1500px) {
+  .MagicCurtainItem {
+    --animation-duration: 5s;
+  }
+}
+
+@media (min-width: 1800px) {
+  .MagicCurtainItem {
+    --animation-duration: 5.5s;
+  }
+}
+
+@media (min-width: 2100px) {
+  .MagicCurtainItem {
+    --animation-duration: 6s;
+  }
 }
 
 @property --gradient-angle {
@@ -26,7 +64,7 @@
   );
 
   mask-size: 230% 100%;
-  animation: mask 6s ease-in-out;
+  animation: mask var(--animation-duration) ease-in-out;
 }
 
 .MagicCurtainItem[data-state='hiding'][data-animation-direction='reverse'] {
