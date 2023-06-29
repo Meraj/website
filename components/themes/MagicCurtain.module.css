@@ -6,31 +6,18 @@
   position: absolute;
   z-index: 0;
   inset: 0;
-
-  --animation-duration: 3s;
+  --animation-duration: 1s;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   .MagicCurtainItem {
-    --animation-duration: 3.5s;
+    --animation-duration: 1.5s;
   }
 }
 
 @media (min-width: 1500px) {
   .MagicCurtainItem {
-    --animation-duration: 4s;
-  }
-}
-
-@media (min-width: 1800px) {
-  .MagicCurtainItem {
-    --animation-duration: 4.5s;
-  }
-}
-
-@media (min-width: 2100px) {
-  .MagicCurtainItem {
-    --animation-duration: 5s;
+    --animation-duration: 2s;
   }
 }
 
@@ -44,47 +31,50 @@
   display: none;
 }
 
-.MagicCurtainItem[data-state='visible'] {
-  position: relative;
-  z-index: 1;
-}
-
 .MagicCurtainItem[data-state='hiding'] {
   position: relative;
   z-index: 1;
-  animation: mask var(--animation-duration) ease-in-out;
+  animation: mask var(--animation-duration) 4s ease-in-out;
 }
 
 .MagicCurtainItem[data-state='hiding'][data-animation-direction='reverse'] {
-  animation: mask-reverse var(--animation-duration) ease-in-out;
+  animation: mask-reverse var(--animation-duration) 4s ease-in-out;
 }
 
 @keyframes mask {
   0% {
-    clip-path: polygon(0 0, 105% 0, 100% 100%, 0 100%);
-  }
-  25% {
-    clip-path: polygon(0 0, 105% 0, 100% 100%, 0 100%);
-  }
-  75% {
-    clip-path: polygon(0 0, -5% 0, 0 100%, 0 100%);
+    clip-path: polygon(0 0, 120% 0, 100% 100%, 0 100%);
   }
   100% {
-    clip-path: polygon(0 0, -5% 0, 0 100%, 0 100%);
+    clip-path: polygon(0 0, -20% 0, 0 100%, 0 100%);
   }
 }
 
 @keyframes mask-reverse {
   0% {
-    clip-path: polygon(-5% 0, 100% 0, 100% 100%, 0 100%);
-  }
-  25% {
-    clip-path: polygon(-5% 0, 100% 0, 100% 100%, 0 100%);
-  }
-  75% {
-    clip-path: polygon(105% 0, 200% 0, 200% 100%, 100% 100%);
+    clip-path: polygon(-20% 0, 100% 0, 100% 100%, 0 100%);
   }
   100% {
-    clip-path: polygon(105% 0, 200% 0, 200% 100%, 100% 100%);
+    clip-path: polygon(120% 0, 200% 0, 200% 100%, 100% 100%);
+  }
+}
+
+@media (min-width: 1000px) {
+  @keyframes mask {
+    0% {
+      clip-path: polygon(0 0, 105% 0, 100% 100%, 0 100%);
+    }
+    100% {
+      clip-path: polygon(0 0, -5% 0, 0 100%, 0 100%);
+    }
+  }
+
+  @keyframes mask-reverse {
+    0% {
+      clip-path: polygon(-5% 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+      clip-path: polygon(105% 0, 200% 0, 200% 100%, 100% 100%);
+    }
   }
 }

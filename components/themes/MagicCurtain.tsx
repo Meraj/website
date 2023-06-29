@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './MagicCurtain.module.css';
 import { createContext } from '@radix-ui/react-context';
 
-type State = 'visible' | 'hidden' | 'hiding' | 'revealing';
+type State = 'hidden' | 'hiding' | 'revealing';
 
 interface MagicCurtainItem {
   ref: React.RefObject<HTMLElement>;
