@@ -547,16 +547,16 @@ export const ExampleDashboard = () => (
         </Flex>
 
         <Text size="3" align="center" mb="5">
-          You paid $17,975.30. We sent a receipt to <Strong>joe.wilson@example.com</Strong>
+          You paid $17,975.30. A receipt copy was sent to <Strong>accounting@example.com</Strong>
         </Text>
 
-        <Button tabIndex={-1} mb="3" variant="outline" style={{ width: '100%' }}>
-          Done
-        </Button>
+        <Flex direction="column" gap="3" align="stretch">
+          <Button tabIndex={-1}>Next invoice</Button>
 
-        <Button tabIndex={-1} style={{ width: '100%' }}>
-          Next invoice
-        </Button>
+          <Button tabIndex={-1} variant="outline">
+            Done
+          </Button>
+        </Flex>
       </Card>
 
       <Card size="4">
