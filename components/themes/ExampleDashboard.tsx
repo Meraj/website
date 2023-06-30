@@ -767,7 +767,7 @@ export const ExampleDashboard = () => (
           <IconButton tabIndex={-1} variant="ghost" color="gray" highContrast>
             <OpenInNewWindowIcon width="20" height="20" />
           </IconButton>
-          <IconButton tabIndex={-1} variant="subtle" color="gray" highContrast>
+          <IconButton tabIndex={-1} variant="soft" color="gray" highContrast>
             <DrawingPinFilledIcon width="20" height="20" />
           </IconButton>
         </Flex>
