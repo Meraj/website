@@ -50,8 +50,10 @@ import { Label } from '@radix-ui/react-label';
 import * as React from 'react';
 
 export const ExampleEcommerce = () => {
+  const [container, setContainer] = React.useState<HTMLDivElement>(null);
+
   return (
-    <Flex align="center" gap="6">
+    <Flex align="center" gap="6" ref={setContainer}>
       <Flex shrink="0" gap="6" direction="column" style={{ width: 304 }}>
         <Card size="1">
           <Flex mb="2">
@@ -100,7 +102,7 @@ export const ExampleEcommerce = () => {
               m="2"
               style={{ background: 'none' }}
             >
-              <IconButton color="gray" variant="surface">
+              <IconButton tabIndex={-1} color="gray" variant="surface">
                 <BookmarkIcon width="16" height="16" />
               </IconButton>
             </Box>
@@ -137,8 +139,8 @@ export const ExampleEcommerce = () => {
               </Label>
 
               <Select.Root defaultValue="Pastel" size="2">
-                <Select.Trigger variant="soft" highContrast />
-                <Select.Content variant="soft">
+                <Select.Trigger tabIndex={-1} variant="soft" highContrast />
+                <Select.Content variant="soft" container={container} position="popper">
                   <Select.Item value="Pastel">Pastel</Select.Item>
                   <Select.Item value="Bright">Bright</Select.Item>
                 </Select.Content>
@@ -153,8 +155,8 @@ export const ExampleEcommerce = () => {
               </Label>
 
               <Select.Root defaultValue="8" size="2">
-                <Select.Trigger variant="soft" highContrast />
-                <Select.Content variant="soft">
+                <Select.Trigger tabIndex={-1} variant="soft" highContrast />
+                <Select.Content variant="soft" container={container} position="popper">
                   {Array.from({ length: 12 }, (_, i) => (
                     <Select.Item key={i} value={String(i * 0.5 + 5)}>
                       {i * 0.5 + 5}
@@ -178,10 +180,10 @@ export const ExampleEcommerce = () => {
               </Text>
 
               <Grid gap="1" columns="2">
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   Tomorrow
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   Within 3 days
                 </Button>
               </Grid>
@@ -193,34 +195,40 @@ export const ExampleEcommerce = () => {
               </Text>
 
               <Grid gap="1" columns="5">
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   5.5
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   6
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   6.5
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   7
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   7.5
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   8
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   8.5
                 </Button>
-                <Button variant="solid" highContrast>
+                <Button tabIndex={-1} variant="solid" highContrast>
                   9
                 </Button>
-                <Button variant="soft" highContrast disabled style={{ fontWeight: 400 }}>
+                <Button
+                  tabIndex={-1}
+                  variant="soft"
+                  highContrast
+                  disabled
+                  style={{ fontWeight: 400 }}
+                >
                   9.5
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   10
                 </Button>
               </Grid>
@@ -232,16 +240,16 @@ export const ExampleEcommerce = () => {
               </Text>
 
               <Grid gap="1" columns="4">
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   Leather
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   Suede
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   Mesh
                 </Button>
-                <Button variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button tabIndex={-1} variant="soft" highContrast style={{ fontWeight: 400 }}>
                   Canvas
                 </Button>
               </Grid>
@@ -265,6 +273,7 @@ export const ExampleEcommerce = () => {
                   { name: 'Beige', value: '#E5DFCF' },
                 ].map((color) => (
                   <Button
+                    tabIndex={-1}
                     key={color.name}
                     variant="soft"
                     highContrast
@@ -342,8 +351,8 @@ export const ExampleEcommerce = () => {
 
                 <Flex direction="column" width="8">
                   <Select.Root defaultValue={item.count} size="1">
-                    <Select.Trigger />
-                    <Select.Content variant="soft">
+                    <Select.Trigger tabIndex={-1} />
+                    <Select.Content variant="soft" container={container} position="popper">
                       {Array.from({ length: 9 }, (_, i) => (
                         <Select.Item key={i} value={String(i + 1)}>
                           {i + 1}
@@ -396,7 +405,7 @@ export const ExampleEcommerce = () => {
               m="2"
               style={{ background: 'none' }}
             >
-              <IconButton color="gray" variant="surface">
+              <IconButton tabIndex={-1} color="gray" variant="surface">
                 <BookmarkIcon width="16" height="16" />
               </IconButton>
             </Box>
@@ -433,8 +442,8 @@ export const ExampleEcommerce = () => {
               </Label>
 
               <Select.Root defaultValue="Lighter" size="2">
-                <Select.Trigger variant="soft" highContrast />
-                <Select.Content variant="soft">
+                <Select.Trigger tabIndex={-1} variant="soft" highContrast />
+                <Select.Content variant="soft" container={container} position="popper">
                   <Select.Item value="Lighter">Lighter</Select.Item>
                   <Select.Item value="Darker">Darker</Select.Item>
                 </Select.Content>
@@ -449,8 +458,8 @@ export const ExampleEcommerce = () => {
               </Label>
 
               <Select.Root defaultValue="30" size="2">
-                <Select.Trigger variant="soft" highContrast />
-                <Select.Content variant="soft">
+                <Select.Trigger tabIndex={-1} variant="soft" highContrast />
+                <Select.Content variant="soft" container={container} position="popper">
                   {Array.from({ length: 17 }, (_, i) => (
                     <Select.Item value={String(i + 24)}>{i + 24}</Select.Item>
                   ))}
@@ -543,7 +552,7 @@ export const ExampleEcommerce = () => {
           <Box height="6">
             <Flex align="center" justify="between">
               <Heading size="3">Bookmarks</Heading>
-              <Button size="1" variant="ghost">
+              <Button tabIndex={-1} size="1" variant="ghost">
                 Buy all
               </Button>
             </Flex>
@@ -610,10 +619,10 @@ export const ExampleEcommerce = () => {
             </Text>
 
             <Flex gap="2">
-              <Button variant="soft" highContrast>
+              <Button tabIndex={-1} variant="soft" highContrast>
                 Undo
               </Button>
-              <Button variant="solid" highContrast>
+              <Button tabIndex={-1} variant="solid" highContrast>
                 Done
               </Button>
             </Flex>
@@ -633,6 +642,7 @@ export const ExampleEcommerce = () => {
                 </Text>
 
                 <TextField
+                  tabIndex={-1}
                   variant="soft"
                   placeholder="Enter product title"
                   defaultValue="Skirt #16"
@@ -646,7 +656,12 @@ export const ExampleEcommerce = () => {
                   <Box display="inline-block">Price</Box>
                 </Text>
 
-                <TextField variant="soft" placeholder="Enter price" defaultValue="$99" />
+                <TextField
+                  tabIndex={-1}
+                  variant="soft"
+                  placeholder="Enter price"
+                  defaultValue="$99"
+                />
               </Label>
             </Box>
           </Grid>
@@ -689,16 +704,16 @@ export const ExampleEcommerce = () => {
                 style={{ border: '1px solid var(--gray-5)', borderRadius: 'var(--br-2)' }}
               >
                 <Grid columns="2" gap="2">
-                  <IconButton highContrast variant="soft" size="2">
+                  <IconButton tabIndex={-1} highContrast variant="soft" size="2">
                     <ImageIcon width="16" height="16" />
                   </IconButton>
-                  <IconButton highContrast variant="soft" size="2">
+                  <IconButton tabIndex={-1} highContrast variant="soft" size="2">
                     <VideoIcon width="16" height="16" />
                   </IconButton>
-                  <IconButton highContrast variant="soft" size="2">
+                  <IconButton tabIndex={-1} highContrast variant="soft" size="2">
                     <InstagramLogoIcon width="16" height="16" />
                   </IconButton>
-                  <IconButton highContrast variant="soft" size="2">
+                  <IconButton tabIndex={-1} highContrast variant="soft" size="2">
                     <RulerHorizontalIcon width="16" height="16" />
                   </IconButton>
                 </Grid>
@@ -714,6 +729,7 @@ export const ExampleEcommerce = () => {
             </Label>
             <Box position="relative">
               <TextArea
+                tabIndex={-1}
                 spellCheck={false}
                 id="skirt-description"
                 variant="soft"
@@ -723,43 +739,43 @@ export const ExampleEcommerce = () => {
               <Box position="absolute" m="2" top="0" left="0" right="0">
                 <Flex gap="4">
                   <Flex gap="1">
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <FontItalicIcon width="16" height="16" />
                     </IconButton>
 
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <FontBoldIcon width="16" height="16" />
                     </IconButton>
 
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <StrikethroughIcon width="16" height="16" />
                     </IconButton>
                   </Flex>
 
                   <Flex gap="1">
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <TextAlignLeftIcon width="16" height="16" />
                     </IconButton>
 
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <TextAlignCenterIcon width="16" height="16" />
                     </IconButton>
 
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <TextAlignRightIcon width="16" height="16" />
                     </IconButton>
                   </Flex>
 
                   <Flex gap="1">
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <MagicWandIcon />
                     </IconButton>
 
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <ImageIcon width="16" height="16" />
                     </IconButton>
 
-                    <IconButton variant="soft" highContrast>
+                    <IconButton tabIndex={-1} variant="soft" highContrast>
                       <CrumpledPaperIcon width="16" height="16" />
                     </IconButton>
                   </Flex>
@@ -785,7 +801,13 @@ export const ExampleEcommerce = () => {
                 'Chiffon',
                 'Other',
               ].map((material) => (
-                <Button key={material} variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button
+                  tabIndex={-1}
+                  key={material}
+                  variant="soft"
+                  highContrast
+                  style={{ fontWeight: 400 }}
+                >
                   {material}
                 </Button>
               ))}
@@ -809,7 +831,13 @@ export const ExampleEcommerce = () => {
                 { name: 'Green', value: 'var(--teal-9)' },
                 { name: 'Beige', value: '#E5DFCF' },
               ].map((color) => (
-                <Button key={color.name} variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button
+                  tabIndex={-1}
+                  key={color.name}
+                  variant="soft"
+                  highContrast
+                  style={{ fontWeight: 400 }}
+                >
                   <Flex align="center" gap="2" width="9">
                     <Box
                       shrink="0"
@@ -835,7 +863,13 @@ export const ExampleEcommerce = () => {
 
             <Grid columns="3" gap="1">
               {['XS', 'S', 'M', 'L', 'XL'].map((material) => (
-                <Button key={material} variant="soft" highContrast style={{ fontWeight: 400 }}>
+                <Button
+                  tabIndex={-1}
+                  key={material}
+                  variant="soft"
+                  highContrast
+                  style={{ fontWeight: 400 }}
+                >
                   {material}
                 </Button>
               ))}
@@ -846,7 +880,7 @@ export const ExampleEcommerce = () => {
         <Card size="2">
           <Flex align="center" justify="between" height="5" mb="4">
             <Heading size="4">Orders</Heading>
-            <Button variant="ghost" size="1" mr="-2">
+            <Button tabIndex={-1} variant="ghost" size="1" mr="-2">
               <CalendarIcon width="12" height="12" />
               <Text size="2">May 2023</Text>
             </Button>
@@ -946,7 +980,7 @@ export const ExampleEcommerce = () => {
           </Flex>
 
           <Flex justify="end">
-            <Button variant="soft" highContrast>
+            <Button tabIndex={-1} variant="soft" highContrast>
               Show more
             </Button>
           </Flex>

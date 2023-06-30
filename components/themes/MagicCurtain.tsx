@@ -23,7 +23,10 @@ const MagicCurtainRoot = ({ children }: React.PropsWithChildren<{}>) => {
     itemsRef.current[1]?.setState('revealing');
 
     const handleAnimationEnd = (event: AnimationEvent) => {
-      if (!(event.target instanceof HTMLElement)) {
+      if (
+        !(event.target instanceof HTMLElement) ||
+        ![styles['magic-curtain'], styles['magic-curtain-reverse']].includes(event.animationName)
+      ) {
         return;
       }
 

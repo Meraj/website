@@ -34,14 +34,14 @@
 .MagicCurtainItem[data-state='hiding'] {
   position: relative;
   z-index: 1;
-  animation: mask var(--animation-duration) 2s ease-in-out;
+  animation: magic-curtain var(--animation-duration) 2s ease-in-out;
 }
 
 .MagicCurtainItem[data-state='hiding'][data-animation-direction='reverse'] {
-  animation: mask-reverse var(--animation-duration) 2s ease-in-out;
+  animation: magic-curtain-reverse var(--animation-duration) 2s ease-in-out;
 }
 
-@keyframes mask {
+@keyframes magic-curtain {
   0% {
     clip-path: polygon(0 0, 120% 0, 100% 100%, 0 100%);
   }
@@ -50,7 +50,7 @@
   }
 }
 
-@keyframes mask-reverse {
+@keyframes magic-curtain-reverse {
   0% {
     clip-path: polygon(-20% 0, 100% 0, 100% 100%, 0 100%);
   }
@@ -60,7 +60,7 @@
 }
 
 @media (min-width: 1000px) {
-  @keyframes mask {
+  @keyframes magic-curtain {
     0% {
       clip-path: polygon(0 0, 105% 0, 100% 100%, 0 100%);
     }
@@ -69,7 +69,7 @@
     }
   }
 
-  @keyframes mask-reverse {
+  @keyframes magic-curtain-reverse {
     0% {
       clip-path: polygon(-5% 0, 100% 0, 100% 100%, 0 100%);
     }
