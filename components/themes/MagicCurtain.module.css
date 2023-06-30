@@ -34,11 +34,11 @@
 .MagicCurtainItem[data-state='hiding'] {
   position: relative;
   z-index: 1;
-  animation: mask var(--animation-duration) 4s ease-in-out;
+  animation: mask var(--animation-duration) 2s ease-in-out;
 }
 
 .MagicCurtainItem[data-state='hiding'][data-animation-direction='reverse'] {
-  animation: mask-reverse var(--animation-duration) 4s ease-in-out;
+  animation: mask-reverse var(--animation-duration) 2s ease-in-out;
 }
 
 @keyframes mask {

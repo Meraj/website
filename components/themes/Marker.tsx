@@ -9,7 +9,7 @@ export const Marker = (props: React.ComponentPropsWithoutRef<typeof Flex>) => (
     {...props}
     style={{
       color: 'var(--teal-11)',
-      backgroundColor: 'var(--teal-4)',
+      backgroundColor: 'var(--teal-a4)',
       borderRadius: '100%',
       ...props.style,
     }}
