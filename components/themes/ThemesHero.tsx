@@ -1,12 +1,33 @@
 import * as React from 'react';
 import styles from './ThemesHero.module.css';
 
-interface ThemesHeroProps {
-  children?: React.ReactNode;
-  title?: string;
-}
+const ThemesHeroRoot = ({ children, ...props }: React.ComponentPropsWithoutRef<'div'>) => (
+  <div className={styles.ThemesHeroRoot} {...props}>
+    <div className={styles.ThemesHeroContent}>{children}</div>
+  </div>
+);
 
-export const ThemesHero = ({ children, title }: ThemesHeroProps) => {
+const ThemesHeroTagline = ({ children, ...props }: React.ComponentPropsWithoutRef<'div'>) => (
+  <div className={styles.ThemesHeroTagline}>
+    <div className={styles.ThemesHeroTaglineInner}>{children}</div>
+  </div>
+);
+
+const ThemesHeroTitle = (props: React.ComponentPropsWithoutRef<'h1'>) => (
+  <h1 className={styles.ThemesHeroTaglineTitle} {...props} />
+);
+
+const ThemesHeroText = (props: React.ComponentPropsWithoutRef<'p'>) => (
+  <p className={styles.ThemesHeroTaglineText} {...props} />
+);
+
+const ThemesHeroButton = ({ children: _, ...props }: React.ComponentPropsWithoutRef<'a'>) => (
+  <a href="/docs/themes" className={styles.ThemesHeroTaglineButton}>
+    Get started <span className={styles.ThemesHeroTaglineButtonArrow} />
+  </a>
+);
+
+const ThemesHeroShowcase = ({ children, title }: React.ComponentPropsWithoutRef<'div'>) => {
   const heroShowcaseScrollRef = React.useRef<HTMLDivElement>(null);
 
   useIsomorphicLayoutEffect(() => {
@@ -37,29 +58,11 @@ export const ThemesHero = ({ children, title }: ThemesHeroProps) => {
   }, []);
 
   return (
-    <div className={styles.ThemesHeroRoot}>
-      <div className={styles.ThemesHeroContent}>
-        <div className={styles.ThemesHeroTagline}>
-          <div className={styles.ThemesHeroTaglineInner}>
-            <h1 className={styles.ThemesHeroTaglineTitle}>{title}</h1>
-
-            <p className={styles.ThemesHeroTaglineText}>
-              Configurable component library from the Radix team. Move quickly with a suite of
-              beautiful, high-quality components and smooth DX.
-            </p>
-            <a href="/docs/themes" className={styles.ThemesHeroTaglineButton}>
-              Get started <span className={styles.ThemesHeroTaglineButtonArrow} />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.ThemesHeroShowcase} aria-hidden>
-          <div className={styles.ThemesHeroShowcaseInner} ref={heroShowcaseScrollRef}>
-            {/* An extra div is needed to have padding working as expected within the scroll container */}
-            <div>
-              <div className={styles.ThemesHeroShowcaseInnerScaled}>{children}</div>
-            </div>
-          </div>
+    <div className={styles.ThemesHeroShowcase} aria-hidden>
+      <div className={styles.ThemesHeroShowcaseInner} ref={heroShowcaseScrollRef}>
+        {/* An extra div is needed to have padding working as expected within the scroll container */}
+        <div>
+          <div className={styles.ThemesHeroShowcaseInnerScaled}>{children}</div>
         </div>
       </div>
     </div>
@@ -68,3 +71,12 @@ export const ThemesHero = ({ children, title }: ThemesHeroProps) => {
 
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+
+export const ThemesHero = {
+  Root: ThemesHeroRoot,
+  Tagline: ThemesHeroTagline,
+  Title: ThemesHeroTitle,
+  Text: ThemesHeroText,
+  Button: ThemesHeroButton,
+  Showcase: ThemesHeroShowcase,
+};
