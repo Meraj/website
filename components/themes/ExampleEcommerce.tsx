@@ -1108,7 +1108,7 @@ export const ExampleEcommerce = () => {
               <Text mb="3" size="3">
                 Striking patterns, vibrant hues, and unusual designs.
               </Text>
-              <Button highContrast variant="soft">
+              <Button highContrast variant="solid">
                 Shop now
               </Button>
             </Box>
