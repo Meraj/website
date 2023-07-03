@@ -35,6 +35,7 @@ import {
   ImageIcon,
   InstagramLogoIcon,
   MagicWandIcon,
+  MagnifyingGlassIcon,
   MinusIcon,
   PlusIcon,
   ReloadIcon,
@@ -461,7 +462,9 @@ export const ExampleEcommerce = () => {
                 <Select.Trigger tabIndex={-1} variant="soft" highContrast />
                 <Select.Content variant="soft" container={container} position="popper">
                   {Array.from({ length: 17 }, (_, i) => (
-                    <Select.Item value={String(i + 24)}>{i + 24}</Select.Item>
+                    <Select.Item key={i} value={String(i + 24)}>
+                      {i + 24}
+                    </Select.Item>
                   ))}
                 </Select.Content>
               </Select.Root>
@@ -983,6 +986,122 @@ export const ExampleEcommerce = () => {
             <Button tabIndex={-1} variant="soft" highContrast>
               Show more
             </Button>
+          </Flex>
+        </Card>
+      </Flex>
+
+      <Flex shrink="0" gap="6" direction="column" style={{ width: 640 }}>
+        <Card size="2">
+          <Heading size="4" mb="4">
+            Top customers
+          </Heading>
+
+          <Flex gap="2">
+            <Box position="relative" mb="5" grow="1">
+              <Box position="absolute" top="0" left="0" m="2" style={{ pointerEvents: 'none' }}>
+                <MagnifyingGlassIcon />
+              </Box>
+              <TextField
+                variant="soft"
+                placeholder="Search"
+                style={{ paddingLeft: 'var(--space-6)' }}
+              />
+            </Box>
+            <Flex direction="column" style={{ minWidth: 140 }}>
+              <Select.Root defaultValue="All customers">
+                <Select.Trigger variant="solid" highContrast />
+                <Select.Content container={container} variant="soft">
+                  <Select.Item value="All customers">All customers</Select.Item>
+                  <Select.Item value={new Date().getFullYear().toString()}>
+                    {new Date().getFullYear()}
+                  </Select.Item>
+                  <Select.Item value={(new Date().getFullYear() - 1).toString()}>
+                    {new Date().getFullYear() - 1}
+                  </Select.Item>
+                  <Select.Item value={(new Date().getFullYear() - 2).toString()}>
+                    {new Date().getFullYear() - 2}
+                  </Select.Item>
+                  <Select.Item value={(new Date().getFullYear() - 3).toString()}>
+                    {new Date().getFullYear() - 3}
+                  </Select.Item>
+                </Select.Content>
+              </Select.Root>
+            </Flex>
+          </Flex>
+
+          <Flex direction="column" gap="5">
+            {[
+              {
+                name: 'Elijah Wilson',
+                address: '735 Pine Street, Apartment 4C, Portland, OR 34567',
+                customerSince: 'November 3, 2017',
+                sales: '$15,432.56',
+                orders: 42,
+              },
+              {
+                name: 'Cameron Johnson',
+                address: '2465 Main Street, Apt 3B, Springfield, OH 12345',
+                customerSince: 'June 10, 2020',
+                sales: '$13,976.43',
+                orders: 12,
+              },
+              {
+                name: 'Sophia Martinez',
+                address: '512 Oakwood Avenue, Unit 201, Greenville, SC 67890',
+                customerSince: 'September 27, 2019',
+                sales: '$11,653.03',
+                orders: 34,
+              },
+              {
+                name: 'Nathan Thompson',
+                address: '837 Maple Lane, Suite 102, Lexington, KY 45678',
+                customerSince: 'May 5, 2018',
+                sales: '$8,245.92',
+                orders: 22,
+              },
+
+              {
+                name: 'Olivia Adams',
+                address: '1123 Elmwood Drive, Boulder, CO 23456',
+                customerSince: 'January 12, 2021',
+                sales: '$6,789.21',
+                orders: 18,
+              },
+            ].map((customer) => (
+              <Flex justify="between" key={customer.name}>
+                <Box>
+                  <Link size="3" weight="bold" highContrast>
+                    {customer.name}
+                  </Link>
+                  <Text size="2" mb="2">
+                    Customer since {customer.customerSince}
+                  </Text>
+                  <Text size="1" mb="1" color="gray">
+                    {customer.address}
+                  </Text>
+                </Box>
+
+                <Flex align="center" justify="end" gap="5" grow="1">
+                  <Box>
+                    <Text size="2" color="gray" align="right">
+                      Sales
+                    </Text>
+                    <Text size="6" weight="bold" align="right">
+                      {customer.sales}
+                    </Text>
+                  </Box>
+                  <Separator orientation="vertical" size="3" />
+                  <Box style={{ minWidth: 70 }}>
+                    <Text size="2" color="gray">
+                      Orders
+                    </Text>
+                    <Text size="6" weight="bold">
+                      {customer.orders}
+                    </Text>
+                  </Box>
+                </Flex>
+              </Flex>
+            ))}
           </Flex>
         </Card>
       </Flex>
