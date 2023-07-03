@@ -2,13 +2,11 @@ import {
   Badge,
   Box,
   Button,
-  Checkbox,
   Flex,
   Grid,
   Heading,
   IconButton,
   Link,
-  RadioGroup,
   Select,
   Separator,
   Strong,
@@ -21,30 +19,18 @@ import { Card } from './Card';
 import {
   BookmarkIcon,
   CalendarIcon,
-  CameraIcon,
-  CheckCircledIcon,
-  CounterClockwiseClockIcon,
-  Cross2Icon,
   CrumpledPaperIcon,
-  FileIcon,
   FontBoldIcon,
   FontItalicIcon,
-  FontStyleIcon,
-  HeartFilledIcon,
-  HeartIcon,
   ImageIcon,
   InstagramLogoIcon,
   MagicWandIcon,
   MagnifyingGlassIcon,
-  MinusIcon,
-  PlusIcon,
-  ReloadIcon,
   RulerHorizontalIcon,
   StrikethroughIcon,
   TextAlignCenterIcon,
   TextAlignLeftIcon,
   TextAlignRightIcon,
-  TextNoneIcon,
   VideoIcon,
 } from '@radix-ui/react-icons';
 import { Label } from '@radix-ui/react-label';
@@ -95,18 +81,13 @@ export const ExampleEcommerce = () => {
               style={{ borderRadius: 'var(--br-1)' }}
             />
 
-            <Box
-              className="light-theme"
-              position="absolute"
-              bottom="0"
-              right="0"
-              m="2"
-              style={{ background: 'none' }}
-            >
-              <IconButton tabIndex={-1} color="gray" variant="surface">
-                <BookmarkIcon width="16" height="16" />
-              </IconButton>
-            </Box>
+            <ThemeConfig mode="light" asChild style={{ borderRadius: 'var(--br-2)' }}>
+              <Box position="absolute" bottom="0" right="0" m="2">
+                <IconButton tabIndex={-1} color="gray" variant="surface">
+                  <BookmarkIcon width="16" height="16" />
+                </IconButton>
+              </Box>
+            </ThemeConfig>
           </Flex>
 
           <Flex align="end" justify="between" mb="2">
@@ -398,18 +379,13 @@ export const ExampleEcommerce = () => {
               style={{ borderRadius: 'var(--br-1)' }}
             />
 
-            <Box
-              className="light-theme"
-              position="absolute"
-              bottom="0"
-              right="0"
-              m="2"
-              style={{ background: 'none' }}
-            >
-              <IconButton tabIndex={-1} color="gray" variant="surface">
-                <BookmarkIcon width="16" height="16" />
-              </IconButton>
-            </Box>
+            <ThemeConfig mode="light" asChild style={{ borderRadius: 'var(--br-2)' }}>
+              <Box position="absolute" bottom="0" right="0" m="2">
+                <IconButton tabIndex={-1} color="gray" variant="surface">
+                  <BookmarkIcon width="16" height="16" />
+                </IconButton>
+              </Box>
+            </ThemeConfig>
           </Flex>
 
           <Flex align="end" justify="between" mb="2">
@@ -993,6 +969,217 @@ export const ExampleEcommerce = () => {
       <Flex shrink="0" gap="6" direction="column" style={{ width: 640 }}>
         <Card size="2">
           <Heading size="4" mb="4">
+            Shipment tracking
+          </Heading>
+
+          <Box position="relative" mb="5" grow="1">
+            <Box position="absolute" top="0" left="0" m="2" style={{ pointerEvents: 'none' }}>
+              <MagnifyingGlassIcon />
+            </Box>
+            <TextField
+              variant="soft"
+              tabIndex={-1}
+              placeholder="Enter package number"
+              style={{ paddingLeft: 'var(--space-6)' }}
+            />
+          </Box>
+
+          <Grid columns="2">
+            <Flex gap="4" direction="column" pr="6">
+              <Box>
+                <Text weight="bold" size="2" mb="1">
+                  Package number
+                </Text>
+                <Text size="3">LASC966124786554</Text>
+              </Box>
+
+              <Box>
+                <Text weight="bold" size="2" mb="1">
+                  Order number
+                </Text>
+                <Link highContrast size="3">
+                  #94356
+                </Link>
+              </Box>
+
+              <Box>
+                <Text weight="bold" size="2" mb="1">
+                  Ship to
+                </Text>
+                <Text size="3" mb="1">
+                  Sophia Martinez
+                </Text>
+                <Text size="2" color="gray">
+                  512 Oakwood Avenue, Unit 201, Greenville, SC 67890
+                </Text>
+              </Box>
+
+              <Grid columns="3">
+                <Box>
+                  <Text weight="bold" size="2" mb="1">
+                    Status
+                  </Text>
+                  <Flex height="5" align="center">
+                    <Badge color="green" style={{ marginLeft: -2 }}>
+                      On time
+                    </Badge>
+                  </Flex>
+                </Box>
+                <Box>
+                  <Text weight="bold" size="2" mb="1">
+                    Weight
+                  </Text>
+                  <Text size="3">3 lb</Text>
+                </Box>
+
+                <Box>
+                  <Text weight="bold" size="2" mb="1">
+                    Order total
+                  </Text>
+                  <Text size="3">$243</Text>
+                </Box>
+              </Grid>
+            </Flex>
+
+            <Box position="relative">
+              <Box position="absolute" top="0" bottom="0" style={{ width: 1, marginLeft: -0.5 }}>
+                <Separator
+                  size="4"
+                  orientation="vertical"
+                  mt="2"
+                  style={{
+                    background: 'linear-gradient(to bottom, var(--teal-6) 90%, transparent)',
+                  }}
+                />
+              </Box>
+
+              <Box pl="6">
+                <Flex direction="column" gap="4">
+                  <Box>
+                    <GreenDot />
+                    <Text size="1" color="gray" mb="1">
+                      July 1, 2023, 10:28 AM
+                    </Text>
+                    <Text size="2">Package picked up from the warehouse in Phoenix, TX</Text>
+                  </Box>
+                  <Box>
+                    <GreenDot />
+                    <Text size="1" color="gray" mb="1">
+                      July 1, 2023, 12:43 PM
+                    </Text>
+                    <Text size="2">Departed from Phoenix, TX</Text>
+                  </Box>
+                  <Box>
+                    <GreenDot />
+                    <Text size="1" color="gray" mb="1">
+                      July 2, 2023, 3:20 PM
+                    </Text>
+                    <Text size="2">Arrived at a sorting facility in Seattle, WA</Text>
+                  </Box>
+                  <Box>
+                    <GreenDot />
+                    <Text size="1" color="gray" mb="1">
+                      July 2, 2023, 7:31 PM
+                    </Text>
+                    <Text size="2">Departed Seattle, WA</Text>
+                  </Box>
+                  <Box>
+                    <GreenDot />
+                    <Text size="1" color="gray" mb="1">
+                      July 2, 2023, 11:03 PM
+                    </Text>
+                    <Text size="2">Arrived to a facility in Greenville, WA</Text>
+                  </Box>
+                </Flex>
+              </Box>
+            </Box>
+          </Grid>
+        </Card>
+
+        <Card size="2">
+          <Grid
+            style={{ margin: 'calc(var(--card-padding) * -1)', gridTemplateRows: '256px 256px' }}
+            columns="3"
+          >
+            <Box p="4">
+              <Heading size="8" mb="2">
+                Dare to stand out
+              </Heading>
+              <Text mb="3" size="3">
+                Striking patterns, vibrant hues, and unusual designs.
+              </Text>
+              <Button highContrast variant="soft">
+                Shop now
+              </Button>
+            </Box>
+
+            <Box>
+              <img
+                src="https://images.unsplash.com/photo-1514866747592-c2d279258a78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </Box>
+
+            <Box p="4">
+              <Text size="1" mb="2" color="gray">
+                <Text asChild>
+                  <span>Men’s</span>
+                </Text>{' '}
+                <Link highContrast>Polo #11</Link> <Link highContrast>Shirt #12</Link>{' '}
+                <Link highContrast>Shirt #24</Link> <Link highContrast>Sneakers #10</Link>{' '}
+                <Link highContrast>Jeans #9</Link> <Link highContrast>T-shirt #4</Link>{' '}
+                <Link highContrast>Pants #20</Link> <Link highContrast>Socks #9</Link>{' '}
+                <Link highContrast>Watch #15</Link> <Link highContrast>Belt #7</Link>{' '}
+                <Link highContrast>Backpack #6</Link> <Link highContrast>Shirt #16</Link>{' '}
+                <Link highContrast>Suit #17</Link> <Link highContrast>Shorts #22</Link>{' '}
+                <Link highContrast>Dress Shoes #13</Link> <Link highContrast>Sneakers #18</Link>{' '}
+                <Link highContrast>Wallet #14</Link> <Link highContrast>Tie #19</Link>
+              </Text>
+
+              <Text size="1" color="gray">
+                <Text asChild>
+                  <span>Women’s</span>
+                </Text>{' '}
+                <Link highContrast>Blouse #16</Link> <Link highContrast>Dress #17</Link>{' '}
+                <Link highContrast>Skirt #22</Link> <Link highContrast>Heels #13</Link>{' '}
+                <Link highContrast>Sandals #18</Link> <Link highContrast>Handbag #14</Link>{' '}
+                <Link highContrast>Scarf #19</Link> <Link highContrast>Earrings #23</Link>{' '}
+                <Link highContrast>Bracelet #21</Link> <Link highContrast>Necklace #25</Link>{' '}
+                <Link highContrast>Glasses #26</Link> <Link highContrast>Perfume #27</Link>{' '}
+                <Link highContrast>Sneakers #7</Link>
+              </Text>
+            </Box>
+
+            <Box>
+              <img
+                src="https://plus.unsplash.com/premium_photo-1668485968648-f29fe5157463?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </Box>
+
+            <Flex p="4" direction="column" align="center" justify="between">
+              <Text size="1" align="center" color="gray">
+                15&thinsp;–&thinsp;30 Mar
+              </Text>
+              <Text mb="3" mr="4" weight="bold" size="9">
+                −25%
+              </Text>
+              <Text size="1" align="center" color="gray">
+                Get our boldest designs.
+              </Text>
+            </Flex>
+
+            <Box>
+              <img
+                src="https://images.unsplash.com/photo-1532660621034-fb55e2e59762?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=700&q=80"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </Box>
+          </Grid>
+        </Card>
+
+        <Card size="2">
+          <Heading size="4" mb="4">
             Top customers
           </Heading>
 
@@ -1108,3 +1295,18 @@ export const ExampleEcommerce = () => {
     </Flex>
   );
 };
+
+const GreenDot = () => (
+  <Box
+    width="2"
+    height="2"
+    position="absolute"
+    mt="1"
+    ml="-1"
+    left="0"
+    style={{
+      backgroundColor: 'var(--teal-9)',
+      borderRadius: '100%',
+    }}
+  />
+);

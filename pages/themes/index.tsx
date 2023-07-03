@@ -20,7 +20,7 @@ export default function ThemesHome() {
           <div className="light-theme" style={{ background: 'none' }}>
             <ThemesHeader />
             <ThemesHero title="Build faster">
-              <ThemeConfig grayScale="mauve">
+              <ThemeConfig grayScale="mauve" mode="light">
                 <Provider>
                   <ExampleDashboard />
                 </Provider>
@@ -32,7 +32,7 @@ export default function ThemesHome() {
           <div className="dark-theme" style={{ background: 'none' }}>
             <ThemesHeader />
             <ThemesHero title="Build better">
-              <ThemeConfig grayScale="mauve">
+              <ThemeConfig grayScale="mauve" mode="dark">
                 <Provider>
                   <ExampleDashboard />
                 </Provider>
@@ -44,7 +44,7 @@ export default function ThemesHome() {
           <div className="light-theme" style={{ background: 'none' }}>
             <ThemesHeader />
             <ThemesHero title="Build faster">
-              <ThemeConfig accentScale="gray" grayScale="sand" textColor="auto">
+              <ThemeConfig accentScale="gray" grayScale="sand" textColor="auto" mode="light">
                 <Provider>
                   <ExampleEcommerce />
                 </Provider>
@@ -56,7 +56,7 @@ export default function ThemesHome() {
           <div className="dark-theme" style={{ background: 'none' }}>
             <ThemesHeader />
             <ThemesHero title="Build better">
-              <ThemeConfig accentScale="gray" grayScale="sand" textColor="auto">
+              <ThemeConfig accentScale="gray" grayScale="sand" textColor="auto" mode="dark">
                 <Provider>
                   <ExampleEcommerce />
                 </Provider>

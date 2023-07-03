@@ -487,38 +487,39 @@ export const ExampleDashboard = () => (
             borderRadius: 'var(--br-4)',
           }}
         >
-          <Flex
-            className="dark-theme"
-            direction="column"
-            justify="between"
-            style={{
-              height: 168,
-              background: 'linear-gradient(to top right, var(--accent-9), #E18BFF)',
-              boxShadow: '0 1px 20px -5px #7971E9AA',
-              borderRadius: 'var(--br-3)',
-            }}
-          >
-            <Text mt="3" mx="3" size="2">
-              Sophie Johnson
-            </Text>
-            <Box>
-              <Flex align="center" gap="2" mb="1" mx="3">
-                <Text size="2">
-                  4929 3849
-                  {/* An empty span prevents iOS Safari from thinking it's a telephone number */}
-                  <span> </span>
-                  5027 1846
-                </Text>
-                <IconButton tabIndex={-1} variant="ghost" color="gray" size="1" highContrast>
-                  <CopyIcon />
-                </IconButton>
-              </Flex>
-              <Flex gap="3" mb="2" mx="3">
-                <Text size="2">01 / 27</Text>
-                <Text size="2">999</Text>
-              </Flex>
-            </Box>
-          </Flex>
+          <ThemeConfig mode="dark" asChild>
+            <Flex
+              direction="column"
+              justify="between"
+              style={{
+                height: 168,
+                background: 'linear-gradient(to top right, var(--accent-9), #E18BFF)',
+                boxShadow: '0 1px 20px -5px #7971E9AA',
+                borderRadius: 'var(--br-3)',
+              }}
+            >
+              <Text mt="3" mx="3" size="2">
+                Sophie Johnson
+              </Text>
+              <Box>
+                <Flex align="center" gap="2" mb="1" mx="3">
+                  <Text size="2">
+                    4929 3849
+                    {/* An empty span prevents iOS Safari from thinking it's a telephone number */}
+                    <span> </span>
+                    5027 1846
+                  </Text>
+                  <IconButton tabIndex={-1} variant="ghost" color="gray" size="1" highContrast>
+                    <CopyIcon />
+                  </IconButton>
+                </Flex>
+                <Flex gap="3" mb="2" mx="3">
+                  <Text size="2">01 / 27</Text>
+                  <Text size="2">999</Text>
+                </Flex>
+              </Box>
+            </Flex>
+          </ThemeConfig>
         </Box>
 
         <Flex mt="6" justify="end" gap="3">
@@ -1027,7 +1028,7 @@ export const ExampleDashboard = () => (
                 MRR
               </Text>
               <Badge color="teal">
-                <ArrowUpIcon width="12" height="12" />
+                <ArrowUpIcon width="12" height="12" style={{ marginLeft: -2 }} />
                 3.2%
               </Badge>
             </Flex>
@@ -1042,7 +1043,7 @@ export const ExampleDashboard = () => (
                 OpEx
               </Text>
               <Badge color="red">
-                <ArrowUpIcon width="12" height="12" />
+                <ArrowUpIcon width="12" height="12" style={{ marginLeft: -2 }} />
                 12.8%
               </Badge>
             </Flex>
@@ -1057,7 +1058,7 @@ export const ExampleDashboard = () => (
                 CapEx
               </Text>
               <Badge color="teal">
-                <ArrowDownIcon width="12" height="12" />
+                <ArrowDownIcon width="12" height="12" style={{ marginLeft: -2 }} />
                 8.8%
               </Badge>
             </Flex>
@@ -1072,7 +1073,7 @@ export const ExampleDashboard = () => (
                 GPM
               </Text>
               <Badge color="red">
-                <ArrowDownIcon width="12" height="12" />
+                <ArrowDownIcon width="12" height="12" style={{ marginLeft: -2 }} />
                 1.2%
               </Badge>
             </Flex>
@@ -1101,7 +1102,7 @@ export const ExampleDashboard = () => (
                 EBITDA
               </Text>
               <Badge color="teal">
-                <ArrowUpIcon width="12" height="12" />
+                <ArrowUpIcon width="12" height="12" style={{ marginLeft: -2 }} />
                 4.1%
               </Badge>
             </Flex>
@@ -1116,7 +1117,7 @@ export const ExampleDashboard = () => (
                 CAC
               </Text>
               <Badge color="teal">
-                <ArrowDownIcon width="12" height="12" />
+                <ArrowDownIcon width="12" height="12" style={{ marginLeft: -2 }} />
                 11.0%
               </Badge>
             </Flex>
@@ -1131,7 +1132,7 @@ export const ExampleDashboard = () => (
                 LTV
               </Text>
               <Badge color="teal">
-                <ArrowUpIcon width="12" height="12" />
+                <ArrowUpIcon width="12" height="12" style={{ marginLeft: -2 }} />
                 3%
               </Badge>
             </Flex>
@@ -1146,7 +1147,7 @@ export const ExampleDashboard = () => (
                 Churn
               </Text>
               <Badge color="red">
-                <ArrowUpIcon width="12" height="12" />
+                <ArrowUpIcon width="12" height="12" style={{ marginLeft: -2 }} />
                 1.1%
               </Badge>
             </Flex>

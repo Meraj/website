@@ -1,6 +1,4 @@
 import seedrandom from 'seedrandom';
-import { allColors } from '@radix-ui/themes';
-import type { Color } from '@radix-ui/themes';
 
 const random = seedrandom('people');
 
@@ -166,6 +164,30 @@ const allPeople = [
 // neutral
 const neutralPeople = [person15, person03, person05, person01, person09, person16, person24];
 
+type Color =
+  | 'tomato'
+  | 'red'
+  | 'crimson'
+  | 'pink'
+  | 'plum'
+  | 'purple'
+  | 'violet'
+  | 'indigo'
+  | 'blue'
+  | 'sky'
+  | 'cyan'
+  | 'teal'
+  | 'mint'
+  | 'green'
+  | 'lime'
+  | 'grass'
+  | 'brown'
+  | 'orange'
+  | 'amber'
+  | 'yellow'
+  | 'gold'
+  | 'bronze';
+
 function getPeopleForColor(color: Color) {
   switch (color) {
     case 'tomato':
@@ -205,7 +227,30 @@ function getPeopleForColor(color: Color) {
 }
 
 function generatePeopleByColorScale() {
-  return allColors.reduce((peopleByColorScale, color) => {
+  return ([
+    'tomato',
+    'red',
+    'crimson',
+    'pink',
+    'plum',
+    'purple',
+    'violet',
+    'indigo',
+    'blue',
+    'sky',
+    'cyan',
+    'teal',
+    'mint',
+    'green',
+    'lime',
+    'grass',
+    'brown',
+    'orange',
+    'amber',
+    'yellow',
+    'gold',
+    'bronze',
+  ] as const).reduce((peopleByColorScale, color) => {
     peopleByColorScale[color] = get3RandomItemsInArray(getPeopleForColor(color));
     return peopleByColorScale;
   }, {} as Record<Color, Person[]>);
