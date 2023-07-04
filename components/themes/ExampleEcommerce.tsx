@@ -1120,35 +1120,62 @@ export const ExampleEcommerce = () => {
               />
             </Box>
 
-            <Box p="4">
-              <Text size="1" mb="2" color="gray">
-                <Text asChild>
+            <Text asChild size="1" mb="2" color="gray" style={{ lineHeight: '20px' }}>
+              <Box p="4">
+                <Text asChild style={{ marginRight: 6 }}>
                   <span>Men’s</span>
-                </Text>{' '}
-                <Link highContrast>Polo #11</Link> <Link highContrast>Shirt #12</Link>{' '}
-                <Link highContrast>Shirt #24</Link> <Link highContrast>Sneakers #10</Link>{' '}
-                <Link highContrast>Jeans #9</Link> <Link highContrast>T-shirt #4</Link>{' '}
-                <Link highContrast>Pants #20</Link> <Link highContrast>Socks #9</Link>{' '}
-                <Link highContrast>Watch #15</Link> <Link highContrast>Belt #7</Link>{' '}
-                <Link highContrast>Backpack #6</Link> <Link highContrast>Shirt #16</Link>{' '}
-                <Link highContrast>Suit #17</Link> <Link highContrast>Shorts #22</Link>{' '}
-                <Link highContrast>Dress Shoes #13</Link> <Link highContrast>Sneakers #18</Link>{' '}
-                <Link highContrast>Wallet #14</Link> <Link highContrast>Tie #19</Link>
-              </Text>
+                </Text>
+                {[
+                  'Polo #11',
+                  'Shirt #12',
+                  'Shirt #24',
+                  'Sneakers #3',
+                  'Jeans #9',
+                  'T‑shirt #4',
+                  'Pants #20',
+                  'Socks #9',
+                  'Watch #15',
+                  'Belt #7',
+                  'Bag #6',
+                  'Shirt #16',
+                  'Suit #17',
+                  'Shorts #22',
+                  'Shoes #13',
+                ].map((product) => (
+                  <>
+                    <Link key={product} highContrast style={{ marginRight: 6 }}>
+                      {product}
+                    </Link>
+                    <wbr />
+                  </>
+                ))}
 
-              <Text size="1" color="gray">
-                <Text asChild>
+                <Text asChild style={{ marginRight: 6 }}>
                   <span>Women’s</span>
-                </Text>{' '}
-                <Link highContrast>Blouse #16</Link> <Link highContrast>Dress #17</Link>{' '}
-                <Link highContrast>Skirt #22</Link> <Link highContrast>Heels #13</Link>{' '}
-                <Link highContrast>Sandals #18</Link> <Link highContrast>Handbag #14</Link>{' '}
-                <Link highContrast>Scarf #19</Link> <Link highContrast>Earrings #23</Link>{' '}
-                <Link highContrast>Bracelet #21</Link> <Link highContrast>Necklace #25</Link>{' '}
-                <Link highContrast>Glasses #26</Link> <Link highContrast>Perfume #27</Link>{' '}
-                <Link highContrast>Sneakers #7</Link>
-              </Text>
-            </Box>
+                </Text>
+                {[
+                  'Blouse #16',
+                  'Dress #3',
+                  'Skirt #22',
+                  'Heels #13',
+                  'Sandals #18',
+                  'Bag #14',
+                  'Scarf #19',
+                  'Earrings #23',
+                  'Bracelet #21',
+                  'Necklace #25',
+                  'Glasses #26',
+                  'Perfume #27',
+                ].map((product) => (
+                  <>
+                    <Link key={product} highContrast style={{ marginRight: 6 }}>
+                      {product}
+                    </Link>
+                    <wbr />
+                  </>
+                ))}
+              </Box>
+            </Text>
 
             <Box>
               <img
