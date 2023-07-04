@@ -658,8 +658,9 @@ export const ExampleEcommerce = () => {
                   height="200"
                   style={{
                     borderRadius: 'var(--br-2)',
+                    objectFit: 'cover',
                     width: '100%',
-                    height: 'auto',
+                    height: 121,
                     cursor: 'zoom-in',
                   }}
                 />
@@ -671,8 +672,9 @@ export const ExampleEcommerce = () => {
                   height="200"
                   style={{
                     borderRadius: 'var(--br-2)',
+                    objectFit: 'cover',
                     width: '100%',
-                    height: 'auto',
+                    height: 121,
                     cursor: 'zoom-in',
                   }}
                 />
@@ -966,7 +968,16 @@ export const ExampleEcommerce = () => {
         </Card>
       </Flex>
 
-      <Flex shrink="0" gap="6" direction="column" style={{ width: 640 }}>
+      <Flex
+        shrink="0"
+        gap="6"
+        direction="column"
+        style={{
+          width: 640,
+          // Space to align the vertically centered content with the dot grid
+          marginBottom: 15,
+        }}
+      >
         <Card size="2">
           <Heading size="4" mb="4">
             Shipment tracking
@@ -1041,7 +1052,7 @@ export const ExampleEcommerce = () => {
               </Grid>
             </Flex>
 
-            <Box position="relative">
+            <Box position="relative" pt="1">
               <Box position="absolute" top="0" bottom="0" style={{ width: 1, marginLeft: -0.5 }}>
                 <Separator
                   size="4"
@@ -1243,7 +1254,7 @@ export const ExampleEcommerce = () => {
             </Flex>
           </Flex>
 
-          <Flex direction="column" gap="5">
+          <Flex direction="column" gap="5" mb="2">
             {[
               {
                 name: 'Elijah Wilson',

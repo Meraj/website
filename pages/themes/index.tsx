@@ -29,7 +29,7 @@ export default function ThemesHome() {
                 <ThemesHero.Button />
               </ThemesHero.Tagline>
               <ThemesHero.Showcase>
-                <ThemeConfig grayScale="mauve" mode="light">
+                <ThemeConfig grayScale="mauve" mode="light" style={{ background: 'none' }}>
                   <Provider>
                     <ExampleDashboard />
                   </Provider>
@@ -51,7 +51,7 @@ export default function ThemesHome() {
                 <ThemesHero.Button />
               </ThemesHero.Tagline>
               <ThemesHero.Showcase>
-                <ThemeConfig grayScale="mauve" mode="dark">
+                <ThemeConfig grayScale="mauve" mode="dark" style={{ background: 'none' }}>
                   <Provider>
                     <ExampleDashboard />
                   </Provider>
@@ -73,7 +73,13 @@ export default function ThemesHome() {
                 <ThemesHero.Button />
               </ThemesHero.Tagline>
               <ThemesHero.Showcase>
-                <ThemeConfig accentScale="gray" grayScale="sand" textColor="auto" mode="light">
+                <ThemeConfig
+                  accentScale="gray"
+                  grayScale="sand"
+                  textColor="auto"
+                  mode="light"
+                  style={{ background: 'none' }}
+                >
                   <Provider>
                     <ExampleEcommerce />
                   </Provider>
@@ -95,7 +101,13 @@ export default function ThemesHome() {
                 <ThemesHero.Button />
               </ThemesHero.Tagline>
               <ThemesHero.Showcase>
-                <ThemeConfig accentScale="gray" grayScale="sand" textColor="auto" mode="dark">
+                <ThemeConfig
+                  accentScale="gray"
+                  grayScale="sand"
+                  textColor="auto"
+                  mode="dark"
+                  style={{ background: 'none' }}
+                >
                   <Provider>
                     <ExampleEcommerce />
                   </Provider>
