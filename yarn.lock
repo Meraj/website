@@ -1799,10 +1799,10 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@radix-ui/themes@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@radix-ui/themes/-/themes-0.0.14.tgz#7bdb74f10563cdec6b87c83d69443d0bcf090d93"
-  integrity sha512-de/B4UuKzW/E0Zgll57VKCPi6yYyhfXYP+hfwxp7xqfIJs2DMtc5Jm++ZL73gtCPKcNyI4KDyBDEz28FOPI5KQ==
+"@radix-ui/themes@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@radix-ui/themes/-/themes-0.0.16.tgz#4e60e3c191b1e93c620c6e923630a4a70ea26b88"
+  integrity sha512-gwM+h/6M/1DIA/wgH2p7QveD2xF7Bl7JfNt/sAxlJWIw8n4uWk4Ek3LfzzE1T4+iuvIdHzUEqaN18yNgGQ4t6A==
   dependencies:
     "@radix-ui/colors" "^1.0.0"
     "@radix-ui/react-accessible-icon" latest
