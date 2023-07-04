@@ -38,7 +38,7 @@ const globalStyles = globalCss({
 
   '::selection': {
     backgroundColor: '$violetA5',
-    color: '$violet12',
+    // color: '$violet12',
   },
 
   '#__next': {
