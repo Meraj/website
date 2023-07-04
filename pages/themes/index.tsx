@@ -1,4 +1,4 @@
-import { Box, Provider, ThemeConfig } from '@radix-ui/themes';
+import { Box, RadixThemesProvider, Theme } from '@radix-ui/themes';
 import '@radix-ui/themes/dist/index.css';
 import * as React from 'react';
 import Head from 'next/head';
@@ -29,11 +29,11 @@ export default function ThemesHome() {
                 <ThemesHero.Button />
               </ThemesHero.Tagline>
               <ThemesHero.Showcase>
-                <ThemeConfig grayScale="mauve" mode="light" style={{ background: 'none' }}>
-                  <Provider>
+                <Theme grayScale="mauve" appearance="light" style={{ background: 'none' }}>
+                  <RadixThemesProvider>
                     <ExampleDashboard />
-                  </Provider>
-                </ThemeConfig>
+                  </RadixThemesProvider>
+                </Theme>
               </ThemesHero.Showcase>
             </ThemesHero.Root>
           </div>
@@ -51,11 +51,11 @@ export default function ThemesHome() {
                 <ThemesHero.Button />
               </ThemesHero.Tagline>
               <ThemesHero.Showcase>
-                <ThemeConfig grayScale="mauve" mode="dark" style={{ background: 'none' }}>
-                  <Provider>
+                <Theme grayScale="mauve" appearance="dark" style={{ background: 'none' }}>
+                  <RadixThemesProvider>
                     <ExampleDashboard />
-                  </Provider>
-                </ThemeConfig>
+                  </RadixThemesProvider>
+                </Theme>
               </ThemesHero.Showcase>
             </ThemesHero.Root>
           </div>
@@ -73,17 +73,17 @@ export default function ThemesHome() {
                 <ThemesHero.Button />
               </ThemesHero.Tagline>
               <ThemesHero.Showcase>
-                <ThemeConfig
+                <Theme
                   accentScale="gray"
                   grayScale="sand"
                   textColor="auto"
-                  mode="light"
+                  appearance="light"
                   style={{ background: 'none' }}
                 >
-                  <Provider>
+                  <RadixThemesProvider>
                     <ExampleEcommerce />
-                  </Provider>
-                </ThemeConfig>
+                  </RadixThemesProvider>
+                </Theme>
               </ThemesHero.Showcase>
             </ThemesHero.Root>
           </div>
@@ -101,17 +101,17 @@ export default function ThemesHome() {
                 <ThemesHero.Button />
               </ThemesHero.Tagline>
               <ThemesHero.Showcase>
-                <ThemeConfig
+                <Theme
                   accentScale="gray"
                   grayScale="sand"
                   textColor="auto"
-                  mode="dark"
+                  appearance="dark"
                   style={{ background: 'none' }}
                 >
-                  <Provider>
+                  <RadixThemesProvider>
                     <ExampleEcommerce />
-                  </Provider>
-                </ThemeConfig>
+                  </RadixThemesProvider>
+                </Theme>
               </ThemesHero.Showcase>
             </ThemesHero.Root>
           </div>

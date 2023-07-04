@@ -13,7 +13,7 @@ import {
   Text,
   TextArea,
   TextField,
-  ThemeConfig,
+  Theme,
 } from '@radix-ui/themes';
 import { Card } from './Card';
 import {
@@ -54,13 +54,11 @@ export const ExampleEcommerce = () => {
 
           <Flex align="center" justify="between" gap="3">
             <Box>
-              <Text color="gray">
-                <Link size="2" weight="bold">
-                  Back to basics
-                </Link>
-              </Text>
+              <Link color="gray" size="2" weight="bold" highContrast>
+                Back to basics
+              </Link>
 
-              <Text size="2" color="gray">
+              <Text size="2" color="gray" as="p">
                 Simple and versatile
               </Text>
             </Box>
@@ -81,22 +79,26 @@ export const ExampleEcommerce = () => {
               style={{ borderRadius: 'var(--br-1)' }}
             />
 
-            <ThemeConfig mode="light" asChild style={{ borderRadius: 'var(--br-2)' }}>
+            <Theme appearance="light" asChild style={{ borderRadius: 'var(--br-2)' }}>
               <Box position="absolute" bottom="0" right="0" m="2">
                 <IconButton tabIndex={-1} color="gray" variant="surface">
                   <BookmarkIcon width="16" height="16" />
                 </IconButton>
               </Box>
-            </ThemeConfig>
+            </Theme>
           </Flex>
 
           <Flex align="end" justify="between" mb="2">
             <Box>
-              <Text size="2" color="gray" mb="1">
-                <Link>Footwear</Link>
-              </Text>
+              <Flex mb="1">
+                <Link size="2" color="gray" highContrast>
+                  Footwear
+                </Link>
+              </Flex>
 
-              <Heading size="3">Sneakers #12</Heading>
+              <Heading as="h3" size="3">
+                Sneakers #12
+              </Heading>
             </Box>
 
             <Text size="6" weight="bold">
@@ -104,7 +106,7 @@ export const ExampleEcommerce = () => {
             </Text>
           </Flex>
 
-          <Text size="2" color="gray" mb="4">
+          <Text as="p" size="2" color="gray" mb="4">
             Love at the first sight for enthusiasts seeking a fresh and whimsical style.
           </Text>
 
@@ -157,7 +159,7 @@ export const ExampleEcommerce = () => {
         <Card size="1">
           <Flex direction="column" style={{ gap: 20 }}>
             <Box>
-              <Text size="2" weight="bold" mb="2">
+              <Text as="div" size="2" weight="bold" mb="2">
                 Delivery
               </Text>
 
@@ -172,7 +174,7 @@ export const ExampleEcommerce = () => {
             </Box>
 
             <Box>
-              <Text size="2" weight="bold" mb="2">
+              <Text as="div" size="2" weight="bold" mb="2">
                 Size
               </Text>
 
@@ -217,7 +219,7 @@ export const ExampleEcommerce = () => {
             </Box>
 
             <Box>
-              <Text size="2" weight="bold" mb="2">
+              <Text as="div" size="2" weight="bold" mb="2">
                 Material
               </Text>
 
@@ -238,7 +240,7 @@ export const ExampleEcommerce = () => {
             </Box>
 
             <Box>
-              <Text size="2" weight="bold" mb="2">
+              <Text as="div" size="2" weight="bold" mb="2">
                 Color
               </Text>
 
@@ -281,7 +283,9 @@ export const ExampleEcommerce = () => {
 
         <Card size="1">
           <Box height="4" mb="4">
-            <Heading size="3">Shopping cart</Heading>
+            <Heading as="h3" size="3">
+              Shopping cart
+            </Heading>
           </Box>
 
           <Flex direction="column" gap="3">
@@ -320,12 +324,12 @@ export const ExampleEcommerce = () => {
                     height="32"
                   />
                   <Box>
-                    <Text color="gray" trim="start">
+                    <Text as="div" color="gray" trim="start">
                       <Link size="2" weight="bold">
                         {item.name}
                       </Link>
                     </Text>
-                    <Text color="gray" size="1" trim="end">
+                    <Text as="div" color="gray" size="1" trim="end">
                       {item.caption}
                     </Text>
                   </Box>
@@ -379,30 +383,34 @@ export const ExampleEcommerce = () => {
               style={{ borderRadius: 'var(--br-1)' }}
             />
 
-            <ThemeConfig mode="light" asChild style={{ borderRadius: 'var(--br-2)' }}>
+            <Theme appearance="light" asChild style={{ borderRadius: 'var(--br-2)' }}>
               <Box position="absolute" bottom="0" right="0" m="2">
                 <IconButton tabIndex={-1} color="gray" variant="surface">
                   <BookmarkIcon width="16" height="16" />
                 </IconButton>
               </Box>
-            </ThemeConfig>
+            </Theme>
           </Flex>
 
           <Flex align="end" justify="between" mb="2">
             <Box>
-              <Text size="2" color="gray" mb="1">
-                <Link>Pants and jeans</Link>
-              </Text>
+              <Flex mb="1">
+                <Link highContrast size="2" color="gray">
+                  Pants and jeans
+                </Link>
+              </Flex>
 
-              <Heading size="3">Jeans #7</Heading>
+              <Heading as="h3" size="3">
+                Jeans #7
+              </Heading>
             </Box>
 
-            <Text size="6" weight="bold">
+            <Text as="div" size="6" weight="bold">
               $149
             </Text>
           </Flex>
 
-          <Text size="2" color="gray" mb="4">
+          <Text as="p" size="2" color="gray" mb="4">
             Jeans with a sense of nostalgia, as if they carry whispered tales of past adventures.
           </Text>
 
@@ -464,13 +472,11 @@ export const ExampleEcommerce = () => {
 
           <Flex align="center" justify="between" gap="3">
             <Box>
-              <Text color="gray">
-                <Link size="2" weight="bold">
-                  Unexpected pairings
-                </Link>
-              </Text>
+              <Link color="gray" size="2" weight="bold" highContrast>
+                Unexpected pairings
+              </Link>
 
-              <Text size="2" color="gray">
+              <Text as="p" size="2" color="gray">
                 Break the fashion norms
               </Text>
             </Box>
@@ -484,7 +490,9 @@ export const ExampleEcommerce = () => {
 
         <Card size="1">
           <Flex mb="3">
-            <Heading size="3">Delivery</Heading>
+            <Heading as="h3" size="3">
+              Delivery
+            </Heading>
           </Flex>
 
           <Box position="absolute" right="0" top="0" m="2">
@@ -494,18 +502,24 @@ export const ExampleEcommerce = () => {
           </Box>
 
           <Box mb="4">
-            <Text size="2" weight="bold" mb="1">
+            <Text as="div" size="2" weight="bold" mb="1">
               Tomorrow
             </Text>
-            <Text size="2">12:00 pm – 2:00 pm</Text>
+            <Text as="div" size="2">
+              12:00 pm – 2:00 pm
+            </Text>
           </Box>
 
           <Box mb="4">
-            <Text size="2" weight="bold" mb="1">
+            <Text as="div" size="2" weight="bold" mb="1">
               Luna Rodriguez
             </Text>
-            <Text size="2">9876 Maple Avenue</Text>
-            <Text size="2">Cityville, WA 54321</Text>
+            <Text as="div" size="2">
+              9876 Maple Avenue
+            </Text>
+            <Text as="div" size="2">
+              Cityville, WA 54321
+            </Text>
           </Box>
 
           <Flex mb="4">
@@ -530,7 +544,9 @@ export const ExampleEcommerce = () => {
         <Card size="1">
           <Box height="6">
             <Flex align="center" justify="between">
-              <Heading size="3">Bookmarks</Heading>
+              <Heading as="h3" size="3">
+                Bookmarks
+              </Heading>
               <Button tabIndex={-1} size="1" variant="ghost">
                 Buy all
               </Button>
@@ -575,7 +591,7 @@ export const ExampleEcommerce = () => {
                   />
                 </Flex>
 
-                <Text size="2" color="gray">
+                <Text as="div" size="2" color="gray">
                   <Link weight="bold">{item.name}</Link>, {item.price}
                 </Text>
               </Box>
@@ -590,7 +606,7 @@ export const ExampleEcommerce = () => {
             <Box mb="2">
               <CrumpledPaperIcon width="24" height="24" />
             </Box>
-            <Heading mb="1" size="4">
+            <Heading as="h3" mb="1" size="4">
               Product discarded
             </Heading>
             <Text size="2" color="gray" mb="4">
@@ -609,7 +625,7 @@ export const ExampleEcommerce = () => {
         </Card>
 
         <Card size="2">
-          <Heading size="4" mb="4">
+          <Heading as="h3" size="4" mb="4">
             Edit product
           </Heading>
 
@@ -860,7 +876,9 @@ export const ExampleEcommerce = () => {
 
         <Card size="2">
           <Flex align="center" justify="between" height="5" mb="4">
-            <Heading size="4">Orders</Heading>
+            <Heading as="h3" size="4">
+              Orders
+            </Heading>
             <Button tabIndex={-1} variant="ghost" size="1" mr="-2">
               <CalendarIcon width="12" height="12" />
               <Text size="2">May 2023</Text>
@@ -979,7 +997,7 @@ export const ExampleEcommerce = () => {
         }}
       >
         <Card size="2">
-          <Heading size="4" mb="4">
+          <Heading as="h3" size="4" mb="4">
             Shipment tracking
           </Heading>
 
@@ -998,14 +1016,16 @@ export const ExampleEcommerce = () => {
           <Grid columns="2">
             <Flex gap="4" direction="column" pr="6">
               <Box>
-                <Text weight="bold" size="2" mb="1">
+                <Text as="div" weight="bold" size="2" mb="1">
                   Package number
                 </Text>
-                <Text size="3">LASC966124786554</Text>
+                <Text as="div" size="3">
+                  LASC966124786554
+                </Text>
               </Box>
 
               <Box>
-                <Text weight="bold" size="2" mb="1">
+                <Text as="div" weight="bold" size="2" mb="1">
                   Order number
                 </Text>
                 <Link highContrast size="3">
@@ -1014,20 +1034,20 @@ export const ExampleEcommerce = () => {
               </Box>
 
               <Box>
-                <Text weight="bold" size="2" mb="1">
+                <Text as="div" weight="bold" size="2" mb="1">
                   Ship to
                 </Text>
-                <Text size="3" mb="1">
+                <Text as="div" size="3" mb="1">
                   Sophia Martinez
                 </Text>
-                <Text size="2" color="gray">
+                <Text as="div" size="2" color="gray">
                   512 Oakwood Avenue, Unit 201, Greenville, SC 67890
                 </Text>
               </Box>
 
               <Grid columns="3">
                 <Box>
-                  <Text weight="bold" size="2" mb="1">
+                  <Text as="div" weight="bold" size="2" mb="1">
                     Status
                   </Text>
                   <Flex height="5" align="center">
@@ -1037,17 +1057,21 @@ export const ExampleEcommerce = () => {
                   </Flex>
                 </Box>
                 <Box>
-                  <Text weight="bold" size="2" mb="1">
+                  <Text as="div" weight="bold" size="2" mb="1">
                     Weight
                   </Text>
-                  <Text size="3">3 lb</Text>
+                  <Text as="div" size="3">
+                    3 lb
+                  </Text>
                 </Box>
 
                 <Box>
-                  <Text weight="bold" size="2" mb="1">
+                  <Text as="div" weight="bold" size="2" mb="1">
                     Order total
                   </Text>
-                  <Text size="3">$243</Text>
+                  <Text as="div" size="3">
+                    $243
+                  </Text>
                 </Box>
               </Grid>
             </Flex>
@@ -1068,38 +1092,48 @@ export const ExampleEcommerce = () => {
                 <Flex direction="column" gap="4">
                   <Box>
                     <GreenDot />
-                    <Text size="1" color="gray" mb="1">
+                    <Text as="div" size="1" color="gray" mb="1">
                       July 1, 2023, 10:28 AM
                     </Text>
-                    <Text size="2">Package picked up from the warehouse in Phoenix, TX</Text>
+                    <Text as="p" size="2">
+                      Package picked up from the warehouse in Phoenix, TX
+                    </Text>
                   </Box>
                   <Box>
                     <GreenDot />
-                    <Text size="1" color="gray" mb="1">
+                    <Text as="div" size="1" color="gray" mb="1">
                       July 1, 2023, 12:43 PM
                     </Text>
-                    <Text size="2">Departed from Phoenix, TX</Text>
+                    <Text as="p" size="2">
+                      Departed from Phoenix, TX
+                    </Text>
                   </Box>
                   <Box>
                     <GreenDot />
-                    <Text size="1" color="gray" mb="1">
+                    <Text as="div" size="1" color="gray" mb="1">
                       July 2, 2023, 3:20 PM
                     </Text>
-                    <Text size="2">Arrived at a sorting facility in Seattle, WA</Text>
+                    <Text as="p" size="2">
+                      Arrived at a sorting facility in Seattle, WA
+                    </Text>
                   </Box>
                   <Box>
                     <GreenDot />
-                    <Text size="1" color="gray" mb="1">
+                    <Text as="div" size="1" color="gray" mb="1">
                       July 2, 2023, 7:31 PM
                     </Text>
-                    <Text size="2">Departed Seattle, WA</Text>
+                    <Text as="p" size="2">
+                      Departed Seattle, WA
+                    </Text>
                   </Box>
                   <Box>
                     <GreenDot />
-                    <Text size="1" color="gray" mb="1">
+                    <Text as="div" size="1" color="gray" mb="1">
                       July 2, 2023, 11:03 PM
                     </Text>
-                    <Text size="2">Arrived to a facility in Greenville, WA</Text>
+                    <Text as="p" size="2">
+                      Arrived to a facility in Greenville, WA
+                    </Text>
                   </Box>
                 </Flex>
               </Box>
@@ -1113,10 +1147,10 @@ export const ExampleEcommerce = () => {
             columns="3"
           >
             <Box p="4">
-              <Heading size="8" mb="2">
+              <Heading as="h3" size="8" mb="2">
                 Dare to stand out
               </Heading>
-              <Text mb="3" size="3">
+              <Text as="p" mb="3" size="3">
                 Striking patterns, vibrant hues, and unusual designs.
               </Text>
               <Button highContrast variant="solid">
@@ -1133,9 +1167,7 @@ export const ExampleEcommerce = () => {
 
             <Text asChild size="1" mb="2" color="gray" style={{ lineHeight: '20px' }}>
               <Box p="4">
-                <Text asChild style={{ marginRight: 6 }}>
-                  <span>Men’s</span>
-                </Text>
+                <Text style={{ marginRight: 6 }}>Men’s</Text>
                 {[
                   'Polo #11',
                   'Shirt #12',
@@ -1161,9 +1193,7 @@ export const ExampleEcommerce = () => {
                   </>
                 ))}
 
-                <Text asChild style={{ marginRight: 6 }}>
-                  <span>Women’s</span>
-                </Text>
+                <Text style={{ marginRight: 6 }}>Women’s</Text>
                 {[
                   'Blouse #16',
                   'Dress #3',
@@ -1217,7 +1247,7 @@ export const ExampleEcommerce = () => {
         </Card>
 
         <Card size="2">
-          <Heading size="4" mb="4">
+          <Heading as="h3" size="4" mb="4">
             Top customers
           </Heading>
 
@@ -1298,29 +1328,29 @@ export const ExampleEcommerce = () => {
                   <Link size="3" weight="bold" highContrast>
                     {customer.name}
                   </Link>
-                  <Text size="2" mb="2">
+                  <Text as="div" size="2" mb="2">
                     Customer since {customer.customerSince}
                   </Text>
-                  <Text size="1" mb="1" color="gray">
-                    {customer.address}
+                  <Text as="div" size="1" mb="1" color="gray">
+                    <address style={{ all: 'unset' }}>{customer.address}</address>
                   </Text>
                 </Box>
 
                 <Flex align="center" justify="end" gap="5" grow="1">
                   <Box>
-                    <Text size="2" color="gray" align="right">
+                    <Text as="div" size="2" color="gray" align="right">
                       Sales
                     </Text>
-                    <Text size="6" weight="bold" align="right">
+                    <Text as="div" size="6" weight="bold" align="right">
                       {customer.sales}
                     </Text>
                   </Box>
                   <Separator orientation="vertical" size="3" />
                   <Box style={{ minWidth: 70 }}>
-                    <Text size="2" color="gray">
+                    <Text as="div" size="2" color="gray">
                       Orders
                     </Text>
-                    <Text size="6" weight="bold">
+                    <Text as="div" size="6" weight="bold">
                       {customer.orders}
                     </Text>
                   </Box>

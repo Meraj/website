@@ -5,7 +5,7 @@ import {
   Flex,
   Heading,
   Separator,
-  ThemeConfig,
+  Theme,
   Slider,
   Select,
   Switch,
@@ -22,7 +22,7 @@ export const ExampleMusicApp = () => (
       <Card size="3">
         <Box height="7">
           <Flex align="center" justify="between">
-            <Heading size="5" trim="both">
+            <Heading as="h3" size="5" trim="both">
               Queue
             </Heading>
 
@@ -39,18 +39,20 @@ export const ExampleMusicApp = () => (
 
         <Flex direction="column" gap="4">
           {songs.slice(0, 4).map((song, i) => (
-            <Flex align="center" gap="3">
+            <Flex align="center" gap="3" key={song.name}>
               <Box asChild width="8" height="8">
                 <img src={song.cover} style={{ objectFit: 'cover', borderRadius: 'var(--br-2)' }} />
               </Box>
               <Box grow="1" width="0">
                 <Text
+                  as="div"
                   size="2"
                   style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}
                 >
                   {song.name}
                 </Text>
                 <Text
+                  as="div"
                   size="1"
                   color="gray"
                   style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}
@@ -59,7 +61,7 @@ export const ExampleMusicApp = () => (
                 </Text>
               </Box>
               <Box>
-                <Text size="2" color="gray">
+                <Text as="div" size="2" color="gray">
                   {song.length}
                 </Text>
               </Box>
@@ -71,7 +73,7 @@ export const ExampleMusicApp = () => (
       <Card size="3">
         <Box height="7">
           <Flex justify="between" align="center">
-            <Heading size="5" trim="both">
+            <Heading as="h3" size="5" trim="both">
               Sound
             </Heading>
 
@@ -184,7 +186,7 @@ export const ExampleMusicApp = () => (
         <Box height="7">
           <Flex justify="between" align="center">
             <Flex align="center" gap="3">
-              <Heading size="5" trim="both">
+              <Heading as="h3" size="5" trim="both">
                 Equalizer
               </Heading>
 
@@ -242,7 +244,7 @@ export const ExampleMusicApp = () => (
       <Card size="3">
         <Box height="7">
           <Flex align="center" justify="between">
-            <Heading size="5" trim="both">
+            <Heading as="h3" size="5" trim="both">
               History
             </Heading>
 
@@ -256,18 +258,20 @@ export const ExampleMusicApp = () => (
 
         <Flex direction="column" gap="4">
           {songs.slice(5).map((song, i) => (
-            <Flex align="center" gap="3">
+            <Flex align="center" gap="3" key={song.name}>
               <Box asChild width="8" height="8">
                 <img src={song.cover} style={{ objectFit: 'cover', borderRadius: 'var(--br-2)' }} />
               </Box>
               <Box grow="1" width="0">
                 <Text
+                  as="div"
                   size="2"
                   style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}
                 >
                   {song.name}
                 </Text>
                 <Text
+                  as="div"
                   size="1"
                   color="gray"
                   style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}
@@ -276,7 +280,7 @@ export const ExampleMusicApp = () => (
                 </Text>
               </Box>
               <Box>
-                <Text size="2" color="gray">
+                <Text as="div" size="2" color="gray">
                   {song.length}
                 </Text>
               </Box>

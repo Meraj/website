@@ -28,7 +28,7 @@ import {
   Switch,
   Text,
   TextField,
-  ThemeConfig,
+  Theme,
 } from '@radix-ui/themes';
 import { Card } from './Card';
 import { Marker } from './Marker';
@@ -48,29 +48,29 @@ export const ExampleDashboard = () => (
     >
       <Card size="4" style={{ height: 464 }}>
         <Box height="7">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             Pricing
           </Heading>
         </Box>
 
-        <Text size="2" mb="5" color="gray">
+        <Text as="p" size="2" mb="5" color="gray">
           No credit card required. Every plan includes a 30-day trial of all Pro features.
         </Text>
 
         <Grid columns="3" gap="6">
           <Flex direction="column">
-            <Heading size="5" mb="1">
+            <Text weight="bold" size="5" mb="1">
               Basic
-            </Heading>
+            </Text>
             <Text color="gray" size="2" mb="4">
               3 team members
             </Text>
-            <Heading size="5" mb="4">
+            <Text weight="bold" size="5" mb="4">
               $0
-              <Text size="5" weight="bold" asChild style={{ color: 'var(--gray-a8)' }}>
-                <span> / mo</span>
+              <Text size="5" weight="bold" style={{ color: 'var(--gray-a8)' }}>
+                {' / mo'}
               </Text>
-            </Heading>
+            </Text>
 
             <Flex direction="column" gap="2">
               <Flex gap="2" align="center">
@@ -116,18 +116,18 @@ export const ExampleDashboard = () => (
           </Flex>
 
           <Flex direction="column">
-            <Heading size="5" mb="1">
+            <Text weight="bold" size="5" mb="1">
               Growth
-            </Heading>
+            </Text>
             <Text color="gray" size="2" mb="4">
               10 team members
             </Text>
-            <Heading size="5" mb="4">
+            <Text weight="bold" size="5" mb="4">
               $49
-              <Text size="5" weight="bold" asChild style={{ color: 'var(--gray-a8)' }}>
-                <span> / mo</span>
+              <Text size="5" weight="bold" style={{ color: 'var(--gray-a8)' }}>
+                {' / mo'}
               </Text>
-            </Heading>
+            </Text>
 
             <Flex direction="column" gap="2">
               <Flex gap="2" align="center">
@@ -173,18 +173,18 @@ export const ExampleDashboard = () => (
           </Flex>
 
           <Flex direction="column">
-            <Heading size="5" mb="1">
+            <Text weight="bold" size="5" mb="1">
               Pro
-            </Heading>
+            </Text>
             <Text color="gray" size="2" mb="4">
               Unlimited team members
             </Text>
-            <Heading size="5" mb="4">
+            <Text weight="bold" size="5" mb="4">
               $99
-              <Text size="5" weight="bold" asChild style={{ color: 'var(--gray-a8)' }}>
-                <span> / mo</span>
+              <Text size="5" weight="bold" style={{ color: 'var(--gray-a8)' }}>
+                {' / mo'}
               </Text>
-            </Heading>
+            </Text>
 
             <Flex direction="column" gap="2">
               <Flex gap="2" align="center">
@@ -233,12 +233,12 @@ export const ExampleDashboard = () => (
 
       <Card size="4">
         <Box height="7">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             Your team
           </Heading>
         </Box>
 
-        <Text size="2" mb="5" color="gray">
+        <Text as="p" size="2" mb="5" color="gray">
           Invite and manage your team members.
         </Text>
 
@@ -286,12 +286,12 @@ export const ExampleDashboard = () => (
 
       <Card size="4">
         <Box height="7">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             Notifications
           </Heading>
         </Box>
 
-        <Text size="2" mb="6" color="gray">
+        <Text as="p" size="2" mb="6" color="gray">
           Manage your notification settings.
         </Text>
 
@@ -299,14 +299,14 @@ export const ExampleDashboard = () => (
           <Separator size="4" my="5" />
         </Box>
 
-        <ThemeConfig radius="full" style={{ background: 'none' }}>
+        <Theme radius="full" style={{ background: 'none' }}>
           <Flex direction="column">
             <Flex gap="9" align="start" justify="between">
               <Box>
-                <Text size="3" weight="bold" mb="1">
+                <Heading as="h4" size="3" mb="1">
                   Comments
-                </Text>
-                <Text size="2" color="gray">
+                </Heading>
+                <Text as="p" size="2" color="gray">
                   Receive notifications when someone comments on your documents or mentions you.
                 </Text>
               </Box>
@@ -346,10 +346,10 @@ export const ExampleDashboard = () => (
 
             <Flex gap="9" align="start" justify="between">
               <Box>
-                <Text size="3" weight="bold" mb="1">
+                <Heading as="h4" size="3" mb="1">
                   Favorites
-                </Text>
-                <Text size="2" color="gray">
+                </Heading>
+                <Text as="p" size="2" color="gray">
                   Receive notifications when there is activity related to your favorited items.
                 </Text>
               </Box>
@@ -383,10 +383,10 @@ export const ExampleDashboard = () => (
 
             <Flex gap="9" align="start" justify="between">
               <Box>
-                <Text size="3" weight="bold" mb="1">
+                <Heading as="h4" size="3" mb="1">
                   New documents
-                </Text>
-                <Text size="2" color="gray">
+                </Heading>
+                <Text as="p" size="2" color="gray">
                   Receive notifications whenever people on your team create new documents.
                 </Text>
               </Box>
@@ -414,7 +414,7 @@ export const ExampleDashboard = () => (
               </Flex>
             </Flex>
           </Flex>
-        </ThemeConfig>
+        </Theme>
       </Card>
     </Flex>
 
@@ -431,28 +431,33 @@ export const ExampleDashboard = () => (
     >
       <Card size="4" style={{ height: 320 }}>
         <Box height="7" mb="4">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             Sign up
           </Heading>
         </Box>
 
         <Box mb="5">
-          <Text size="2" weight="bold" mb="2">
-            Email address
-          </Text>
-          <TextField tabIndex={-1} placeholder="Enter your email" />
+          <Label>
+            <Text as="div" size="2" weight="bold" mb="2">
+              Email address
+            </Text>
+            <TextField tabIndex={-1} placeholder="Enter your email" />
+          </Label>
         </Box>
 
-        <Box mb="5">
-          <Flex justify="between" mb="2">
-            <Text size="2" weight="bold">
-              Password
-            </Text>
+        <Box mb="5" position="relative">
+          <Box position="absolute" top="0" right="0" style={{ marginTop: -2 }}>
             <Link tabIndex={-1} size="2">
               Forgot password?
             </Link>
-          </Flex>
-          <TextField tabIndex={-1} placeholder="Enter your password" />
+          </Box>
+
+          <Label>
+            <Text as="div" size="2" weight="bold" mb="2">
+              Password
+            </Text>
+            <TextField tabIndex={-1} placeholder="Enter your password" />
+          </Label>
         </Box>
 
         <Flex mt="6" justify="end" gap="3">
@@ -471,12 +476,12 @@ export const ExampleDashboard = () => (
         </Box>
 
         <Box height="7">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             Your company card
           </Heading>
         </Box>
 
-        <Text size="2" mb="6" color="gray">
+        <Text as="p" size="2" mb="6" color="gray">
           View and manage your corporate card.
         </Text>
 
@@ -487,7 +492,7 @@ export const ExampleDashboard = () => (
             borderRadius: 'var(--br-4)',
           }}
         >
-          <ThemeConfig mode="dark" asChild>
+          <Theme appearance="dark" asChild>
             <Flex
               direction="column"
               justify="between"
@@ -519,7 +524,7 @@ export const ExampleDashboard = () => (
                 </Flex>
               </Box>
             </Flex>
-          </ThemeConfig>
+          </Theme>
         </Box>
 
         <Flex mt="6" justify="end" gap="3">
@@ -543,11 +548,13 @@ export const ExampleDashboard = () => (
           </Marker>
 
           <Box height="8">
-            <Heading size="6">Invoice paid</Heading>
+            <Heading as="h3" size="6">
+              Invoice paid
+            </Heading>
           </Box>
         </Flex>
 
-        <Text size="3" align="center" mb="5">
+        <Text as="p" size="3" align="center" mb="5">
           You paid $17,975.30. A receipt copy was sent to <Strong>accounting@example.com</Strong>
         </Text>
 
@@ -568,7 +575,7 @@ export const ExampleDashboard = () => (
         </Box>
 
         <Box height="7" mb="4">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             Invoice{' '}
             <Link tabIndex={-1} weight="bold">
               #3463
@@ -578,41 +585,45 @@ export const ExampleDashboard = () => (
 
         <Grid columns="2" gapX="4" gapY="5">
           <Box>
-            <Text size="2" mb="1" color="gray">
+            <Text as="div" size="2" mb="1" color="gray">
               Issued
             </Text>
-            <Text size="3" weight="bold">
+            <Text as="div" size="3" weight="bold">
               June 21, 2023
             </Text>
           </Box>
 
           <Box>
-            <Text size="2" mb="1" color="gray">
+            <Text as="div" size="2" mb="1" color="gray">
               Due
             </Text>
-            <Text size="3" weight="bold">
+            <Text as="div" size="3" weight="bold">
               July 21, 2023
             </Text>
           </Box>
 
           <Box>
-            <Text size="2" mb="1" color="gray">
+            <Text as="div" size="2" mb="1" color="gray">
               To
             </Text>
-            <Text size="3" mb="1" weight="bold">
+            <Text as="div" size="3" mb="1" weight="bold">
               Paradise Ventures
             </Text>
-            <Text size="2">742 Evergreen Terrace, Springfield, IL 62704</Text>
+            <Text as="div" size="2">
+              742 Evergreen Terrace, Springfield, IL 62704
+            </Text>
           </Box>
 
           <Box>
-            <Text size="2" mb="1" color="gray">
+            <Text as="div" size="2" mb="1" color="gray">
               From
             </Text>
-            <Text size="3" mb="1" weight="bold">
+            <Text as="div" size="3" mb="1" weight="bold">
               Rogue Widgets
             </Text>
-            <Text size="2">1600 Baker Street NW, Washington, DC 20500</Text>
+            <Text as="div" size="2">
+              1600 Baker Street NW, Washington, DC 20500
+            </Text>
           </Box>
 
           <Flex direction="column" gap="1" style={{ gridColumn: '1 / -1' }}>
@@ -667,7 +678,7 @@ export const ExampleDashboard = () => (
     >
       <Card size="4">
         <Box height="7">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             To-do
           </Heading>
         </Box>
@@ -681,7 +692,7 @@ export const ExampleDashboard = () => (
           </IconButton>
         </Flex>
 
-        <Text size="2" mb="5" color="gray">
+        <Text as="p" size="2" mb="5" color="gray">
           Stay on top of your daily tasks.
         </Text>
 
@@ -759,7 +770,7 @@ export const ExampleDashboard = () => (
 
       <Card size="4">
         <Box height="7">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             Recent activity
           </Heading>
         </Box>
@@ -773,7 +784,7 @@ export const ExampleDashboard = () => (
           </IconButton>
         </Flex>
 
-        <Text size="2" mb="7" color="gray">
+        <Text as="p" size="2" mb="7" color="gray">
           Review what has happened over the past days.
         </Text>
 
@@ -787,10 +798,10 @@ export const ExampleDashboard = () => (
                   fallback={allPeople[6]?.name[0].toUpperCase()}
                 />
                 <Box>
-                  <Text size="2" weight="bold">
+                  <Text as="div" size="2" weight="bold">
                     {allPeople[6].name}
                   </Text>
-                  <Text size="2" color="gray">
+                  <Text as="div" size="2" color="gray">
                     Approved invoice <Link tabIndex={-1}>#3461</Link>
                   </Text>
                 </Box>
@@ -815,10 +826,10 @@ export const ExampleDashboard = () => (
                   fallback={allPeople[8]?.name[0].toUpperCase()}
                 />
                 <Box>
-                  <Text size="2" weight="bold">
+                  <Text as="div" size="2" weight="bold">
                     {allPeople[8].name}
                   </Text>
-                  <Text size="2" color="gray">
+                  <Text as="p" size="2" color="gray">
                     Purchased <Link tabIndex={-1}>15 office chairs</Link> and{' '}
                     <Link tabIndex={-1}>2 drum sets</Link>
                   </Text>
@@ -844,10 +855,10 @@ export const ExampleDashboard = () => (
                   fallback={allPeople[8]?.name[0].toUpperCase()}
                 />
                 <Box>
-                  <Text size="2" weight="bold">
+                  <Text as="div" size="2" weight="bold">
                     {allPeople[8].name}
                   </Text>
-                  <Text size="2" color="gray">
+                  <Text as="p" size="2" color="gray">
                     Responded to your comment <Link tabIndex={-1}>#7514</Link>
                   </Text>
                 </Box>
@@ -872,10 +883,10 @@ export const ExampleDashboard = () => (
                   fallback={allPeople[28]?.name[0].toUpperCase()}
                 />
                 <Box>
-                  <Text size="2" weight="bold">
+                  <Text as="div" size="2" weight="bold">
                     {allPeople[28].name}
                   </Text>
-                  <Text size="2" color="gray">
+                  <Text as="p" size="2" color="gray">
                     Created <Link tabIndex={-1}>4 invoices</Link>
                   </Text>
                 </Box>
@@ -900,10 +911,10 @@ export const ExampleDashboard = () => (
                   fallback={allPeople[26]?.name[0].toUpperCase()}
                 />
                 <Box>
-                  <Text size="2" weight="bold">
+                  <Text as="div" size="2" weight="bold">
                     {allPeople[26].name}
                   </Text>
-                  <Text size="2" color="gray">
+                  <Text as="p" size="2" color="gray">
                     Updated client details for <Link tabIndex={-1}>Acme Co.</Link>
                   </Text>
                 </Box>
@@ -928,10 +939,10 @@ export const ExampleDashboard = () => (
                   fallback={allPeople[25]?.name[0].toUpperCase()}
                 />
                 <Box>
-                  <Text size="2" weight="bold">
+                  <Text as="div" size="2" weight="bold">
                     {allPeople[25].name}
                   </Text>
-                  <Text size="2" color="gray">
+                  <Text as="p" size="2" color="gray">
                     Created <Link tabIndex={-1}>a new report</Link>
                   </Text>
                 </Box>
@@ -956,10 +967,10 @@ export const ExampleDashboard = () => (
                   fallback={allPeople[25]?.name[0].toUpperCase()}
                 />
                 <Box>
-                  <Text size="2" weight="bold">
+                  <Text as="div" size="2" weight="bold">
                     {allPeople[25].name}
                   </Text>
-                  <Text size="2" color="gray">
+                  <Text as="p" size="2" color="gray">
                     Deleted report <Link tabIndex={-1}>#34</Link>
                   </Text>
                 </Box>
@@ -984,10 +995,10 @@ export const ExampleDashboard = () => (
                   fallback={allPeople[20]?.name[0].toUpperCase()}
                 />
                 <Box>
-                  <Text size="2" weight="bold">
+                  <Text as="div" size="2" weight="bold">
                     {allPeople[20].name}
                   </Text>
-                  <Text size="2" color="gray">
+                  <Text as="p" size="2" color="gray">
                     Joined the team
                   </Text>
                 </Box>
@@ -1003,7 +1014,7 @@ export const ExampleDashboard = () => (
 
       <Card size="4">
         <Box height="7">
-          <Heading size="6" mt="-1">
+          <Heading as="h3" size="6" mt="-1">
             Financial performance
           </Heading>
         </Box>
@@ -1017,7 +1028,7 @@ export const ExampleDashboard = () => (
           </IconButton>
         </Flex>
 
-        <Text size="2" mb="6" color="gray">
+        <Text as="p" size="2" mb="6" color="gray">
           Review your company’s KPIs compared to the month before.
         </Text>
 
@@ -1032,7 +1043,7 @@ export const ExampleDashboard = () => (
                 3.2%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               $350K
             </Text>
           </Box>
@@ -1047,7 +1058,7 @@ export const ExampleDashboard = () => (
                 12.8%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               $211K
             </Text>
           </Box>
@@ -1062,7 +1073,7 @@ export const ExampleDashboard = () => (
                 8.8%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               $94K
             </Text>
           </Box>
@@ -1077,7 +1088,7 @@ export const ExampleDashboard = () => (
                 1.2%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               44.6%
             </Text>
           </Box>
@@ -1091,7 +1102,7 @@ export const ExampleDashboard = () => (
                 0.0%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               9.1%
             </Text>
           </Box>
@@ -1106,7 +1117,7 @@ export const ExampleDashboard = () => (
                 4.1%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               $443K
             </Text>
           </Box>
@@ -1121,7 +1132,7 @@ export const ExampleDashboard = () => (
                 11.0%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               $146
             </Text>
           </Box>
@@ -1136,7 +1147,7 @@ export const ExampleDashboard = () => (
                 3%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               $1,849
             </Text>
           </Box>
@@ -1151,7 +1162,7 @@ export const ExampleDashboard = () => (
                 1.1%
               </Badge>
             </Flex>
-            <Text mb="2" size="8" weight="bold">
+            <Text as="div" mb="2" size="8" weight="bold">
               12.4%
             </Text>
           </Box>
