@@ -11,10 +11,12 @@ import {
   Switch,
   Grid,
   IconButton,
+  AspectRatio,
+  Link,
 } from '@radix-ui/themes';
 import { Label } from '@radix-ui/react-label';
 import { Card } from './Card';
-import { SpeakerLoudIcon, SpeakerOffIcon, SpeakerQuietIcon } from '@radix-ui/react-icons';
+import { Hover } from './Hover';
 
 export const ExampleMusicApp = () => (
   <Flex align="center" gap="6">
@@ -38,7 +40,7 @@ export const ExampleMusicApp = () => (
         </Box>
 
         <Flex direction="column" gap="4">
-          {songs.slice(0, 4).map((song, i) => (
+          {songs.slice(0, 4).map((song) => (
             <Flex align="center" gap="3" key={song.name}>
               <Box asChild width="8" height="8">
                 <img src={song.cover} style={{ objectFit: 'cover', borderRadius: 'var(--br-2)' }} />
@@ -84,11 +86,11 @@ export const ExampleMusicApp = () => (
         </Box>
 
         <Flex gap="2" align="center" mt="2" mb="5">
-          <SpeakerQuietIcon color="var(--gray-a9)" />
+          <VolumeNoneIcon color="var(--gray-a9)" />
           <Box grow="1">
             <Slider radius="full" defaultValue={[80]} />
           </Box>
-          <SpeakerLoudIcon color="var(--gray-a9)" />
+          <VolumeMaxIcon color="var(--gray-a9)" />
         </Flex>
 
         <Grid columns="4">
@@ -97,12 +99,12 @@ export const ExampleMusicApp = () => (
               <IconButton radius="full" variant="solid">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  fill="currentcolor"
+                  viewBox="0 0 30 30"
                   width="16"
                   height="16"
+                  fill="currentColor"
                 >
-                  <path d="M 10.5 1 C 10.222656 1 10 1.222656 10 1.5 L 10 13.5 C 10 13.777344 10.222656 14 10.5 14 L 12.5 14 C 12.777344 14 13 13.777344 13 13.5 L 13 1.5 C 13 1.222656 12.777344 1 12.5 1 Z M 11 2 L 12 2 L 12 13 L 11 13 Z M 6.5 5 C 6.222656 5 6 5.222656 6 5.5 L 6 13.5 C 6 13.777344 6.222656 14 6.5 14 L 8.5 14 C 8.777344 14 9 13.777344 9 13.5 L 9 5.5 C 9 5.222656 8.777344 5 8.5 5 Z M 7 6 L 8 6 L 8 13 L 7 13 Z M 2.5 8 C 2.222656 8 2 8.222656 2 8.5 L 2 13.5 C 2 13.777344 2.222656 14 2.5 14 L 4.5 14 C 4.777344 14 5 13.777344 5 13.5 L 5 8.5 C 5 8.222656 4.777344 8 4.5 8 Z M 3 9 L 4 9 L 4 13 L 3 13 Z" />
+                  <path d="M 21 4 C 20.448 4 20 4.448 20 5 L 20 25 C 20 25.552 20.448 26 21 26 L 25 26 C 25.552 26 26 25.552 26 25 L 26 5 C 26 4.448 25.552 4 25 4 L 21 4 z M 13 10 C 12.448 10 12 10.448 12 11 L 12 25 C 12 25.552 12.448 26 13 26 L 17 26 C 17.552 26 18 25.552 18 25 L 18 11 C 18 10.448 17.552 10 17 10 L 13 10 z M 5 16 C 4.448 16 4 16.448 4 17 L 4 25 C 4 25.552 4.448 26 5 26 L 9 26 C 9.552 26 10 25.552 10 25 L 10 17 C 10 16.448 9.552 16 9 16 L 5 16 z" />
                 </svg>
               </IconButton>
               <Text align="center" weight="bold" size="2">
@@ -119,12 +121,12 @@ export const ExampleMusicApp = () => (
               <IconButton radius="full" variant="solid">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="currentcolor"
-                  viewBox="0 0 16 16"
+                  viewBox="0 0 30 30"
                   width="16"
                   height="16"
+                  fill="currentColor"
                 >
-                  <path d="M 2 2 L 2 4 L 1.5 4 C 1.222656 4 1 4.222656 1 4.5 L 1 6.5 C 1 6.777344 1.222656 7 1.5 7 L 2 7 L 2 14 L 3 14 L 3 7 L 3.5 7 C 3.777344 7 4 6.777344 4 6.5 L 4 4.5 C 4 4.222656 3.777344 4 3.5 4 L 3 4 L 3 2 Z M 7 2 L 7 10 L 6.5 10 C 6.222656 10 6 10.222656 6 10.5 L 6 12.5 C 6 12.777344 6.222656 13 6.5 13 L 7 13 L 7 14 L 8 14 L 8 13 L 8.5 13 C 8.777344 13 9 12.777344 9 12.5 L 9 10.5 C 9 10.222656 8.777344 10 8.5 10 L 8 10 L 8 2 Z M 12 2 L 12 6 L 11.5 6 C 11.222656 6 11 6.222656 11 6.5 L 11 8.5 C 11 8.777344 11.222656 9 11.5 9 L 12 9 L 12 14 L 13 14 L 13 9 L 13.5 9 C 13.777344 9 14 8.777344 14 8.5 L 14 6.5 C 14 6.222656 13.777344 6 13.5 6 L 13 6 L 13 2 Z M 2 5 L 3 5 L 3 6 L 2 6 Z M 12 7 L 13 7 L 13 8 L 12 8 Z M 7 11 L 8 11 L 8 12 L 7 12 Z" />
+                  <path d="M 22 4 A 1.0001 1.0001 0 1 0 22 6 L 28 6 A 1.0001 1.0001 0 1 0 28 4 L 22 4 z M 2 8 A 1.0001 1.0001 0 1 0 2 10 L 8 10 A 1.0001 1.0001 0 1 0 8 8 L 2 8 z M 22 8 A 1.0001 1.0001 0 1 0 22 10 L 28 10 A 1.0001 1.0001 0 1 0 28 8 L 22 8 z M 2 12 A 1.0001 1.0001 0 1 0 2 14 L 8 14 A 1.0001 1.0001 0 1 0 8 12 L 2 12 z M 22 12 A 1.0001 1.0001 0 1 0 22 14 L 28 14 A 1.0001 1.0001 0 1 0 28 12 L 22 12 z M 2 16 A 1.0001 1.0001 0 1 0 2 18 L 8 18 A 1.0001 1.0001 0 1 0 8 16 L 2 16 z M 12 16 A 1.0001 1.0001 0 1 0 12 18 L 18 18 A 1.0001 1.0001 0 1 0 18 16 L 12 16 z M 22 16 A 1.0001 1.0001 0 1 0 22 18 L 28 18 A 1.0001 1.0001 0 1 0 28 16 L 22 16 z M 2 20 A 1.0001 1.0001 0 1 0 2 22 L 8 22 A 1.0001 1.0001 0 1 0 8 20 L 2 20 z M 12 20 A 1.0001 1.0001 0 1 0 12 22 L 18 22 A 1.0001 1.0001 0 1 0 18 20 L 12 20 z M 22 20 A 1.0001 1.0001 0 1 0 22 22 L 28 22 A 1.0001 1.0001 0 1 0 28 20 L 22 20 z M 2 24 A 1.0001 1.0001 0 1 0 2 26 L 8 26 A 1.0001 1.0001 0 1 0 8 24 L 2 24 z M 12 24 A 1.0001 1.0001 0 1 0 12 26 L 18 26 A 1.0001 1.0001 0 1 0 18 24 L 12 24 z M 22 24 A 1.0001 1.0001 0 1 0 22 26 L 28 26 A 1.0001 1.0001 0 1 0 28 24 L 22 24 z" />
                 </svg>
               </IconButton>
               <Text align="center" weight="bold" size="2">
@@ -138,15 +140,15 @@ export const ExampleMusicApp = () => (
 
           <Flex direction="column" gap="1" align="center" asChild>
             <Label>
-              <IconButton radius="full" variant="soft">
+              <IconButton radius="full" variant="soft" color="gray">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
+                  viewBox="0 0 30 30"
                   width="16"
                   height="16"
-                  fill="currentcolor"
+                  fill="currentColor"
                 >
-                  <path d="M 8 4 C 5.875 4 3.949219 4.339844 2.511719 4.914063 C 1.792969 5.203125 1.191406 5.546875 0.746094 5.96875 C 0.300781 6.390625 0 6.917969 0 7.5 C 0 8.082031 0.300781 8.609375 0.746094 9.03125 C 1.191406 9.453125 1.792969 9.796875 2.511719 10.085938 C 3.71875 10.570313 5.277344 10.871094 7 10.957031 L 7 13 L 9.5 10.5 L 7 8 L 7 9.960938 C 5.390625 9.867188 3.941406 9.578125 2.882813 9.15625 C 2.246094 8.902344 1.746094 8.601563 1.433594 8.304688 C 1.121094 8.007813 1 7.746094 1 7.5 C 1 7.253906 1.121094 6.992188 1.433594 6.695313 C 1.746094 6.398438 2.246094 6.097656 2.882813 5.84375 C 4.160156 5.332031 5.984375 5 8 5 C 10.015625 5 11.839844 5.332031 13.117188 5.84375 C 13.753906 6.097656 14.253906 6.398438 14.566406 6.695313 C 14.878906 6.992188 15 7.253906 15 7.5 C 15 7.839844 14.746094 8.242188 14.121094 8.648438 C 13.554688 9.015625 12.71875 9.34375 11.722656 9.582031 C 11.488281 9.640625 11.257813 9.699219 11 9.742188 L 11 10.761719 C 11.210938 10.726563 11.402344 10.679688 11.601563 10.636719 L 11.605469 10.640625 C 11.6875 10.625 11.761719 10.601563 11.84375 10.582031 C 11.894531 10.570313 11.949219 10.5625 12 10.550781 L 12 10.546875 C 13.058594 10.289063 13.972656 9.9375 14.664063 9.488281 C 15.445313 8.980469 16 8.308594 16 7.5 C 16 6.917969 15.699219 6.390625 15.253906 5.96875 C 14.808594 5.546875 14.207031 5.203125 13.488281 4.914063 C 12.050781 4.339844 10.125 4 8 4 Z" />
+                  <path d="M 15 3 C 14.501862 3 14.004329 3.1237904 13.554688 3.3710938 L 4.7773438 8.1992188 C 4.2990638 8.4622726 4 8.9690345 4 9.5136719 L 4 10.128906 L 4 20.048828 C 4 20.573313 4.2799803 21.064852 4.7265625 21.333984 A 1.0001 1.0001 0 0 0 4.7285156 21.335938 L 13.457031 26.572266 C 14.405619 27.141718 15.594381 27.141718 16.542969 26.572266 L 25.269531 21.337891 L 25.271484 21.335938 C 25.723679 21.065216 26 20.572371 26 20.048828 L 26 9.5136719 C 26 8.9690345 25.700936 8.4622727 25.222656 8.1992188 L 16.445312 3.3710938 C 15.99567 3.1237903 15.498138 3 15 3 z M 15 5 C 15.166032 5 15.332064 5.0423034 15.482422 5.125 L 23.166016 9.3496094 L 19.755859 11.179688 L 20.701172 12.941406 L 24 11.171875 L 24 19.765625 L 16 24.566406 L 16 21 L 14 21 L 14 24.566406 L 6 19.765625 L 6 11.171875 L 9.2988281 12.941406 L 10.244141 11.179688 L 6.8339844 9.3496094 L 14.517578 5.125 C 14.667936 5.0423034 14.833968 5 15 5 z M 15 11 A 4 4 0 0 0 15 19 A 4 4 0 0 0 15 11 z" />
                 </svg>
               </IconButton>
               <Text align="center" weight="bold" size="2">
@@ -160,15 +162,15 @@ export const ExampleMusicApp = () => (
 
           <Flex direction="column" gap="1" align="center" asChild>
             <Label>
-              <IconButton radius="full" variant="soft">
+              <IconButton radius="full" variant="soft" color="gray">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
+                  viewBox="0 0 30 30"
                   width="16"
                   height="16"
                   fill="currentcolor"
                 >
-                  <path d="M 2.5 2 A 0.50005 0.50005 0 0 0 2 2.5 L 2 13.5 A 0.50005 0.50005 0 0 0 2.5 14 L 13.5 14 A 0.50005 0.50005 0 0 0 14 13.5 L 14 2.5 A 0.50005 0.50005 0 0 0 13.5 2 L 2.5 2 z M 3.7070312 3 L 12.292969 3 L 8 7.2929688 L 3.7070312 3 z M 3 3.7070312 L 7.2929688 8 L 3 12.292969 L 3 3.7070312 z M 13 3.7070312 L 13 12.292969 L 8.7070312 8 L 13 3.7070312 z M 8 8.7070312 L 12.292969 13 L 3.7070312 13 L 8 8.7070312 z" />
+                  <path d="M 8.984375 3.9863281 A 1.0001 1.0001 0 0 0 8 5 L 8 16 A 1.0001 1.0001 0 1 0 10 16 L 10 5 A 1.0001 1.0001 0 0 0 8.984375 3.9863281 z M 4.984375 6.9863281 A 1.0001 1.0001 0 0 0 4 8 L 4 16 A 1.0001 1.0001 0 1 0 6 16 L 6 8 A 1.0001 1.0001 0 0 0 4.984375 6.9863281 z M 12.984375 9.9863281 A 1.0001 1.0001 0 0 0 12 11 L 12 16 A 1.0001 1.0001 0 1 0 14 16 L 14 11 A 1.0001 1.0001 0 0 0 12.984375 9.9863281 z M 0.984375 11.986328 A 1.0001 1.0001 0 0 0 0 13 L 0 16 A 1.0001 1.0001 0 1 0 2 16 L 2 13 A 1.0001 1.0001 0 0 0 0.984375 11.986328 z M 16.984375 14.986328 A 1.0001 1.0001 0 0 0 16 16 L 16 21 A 1.0001 1.0001 0 1 0 18 21 L 18 16 A 1.0001 1.0001 0 0 0 16.984375 14.986328 z M 20.984375 14.986328 A 1.0001 1.0001 0 0 0 20 16 L 20 26 A 1.0001 1.0001 0 1 0 22 26 L 22 16 A 1.0001 1.0001 0 0 0 20.984375 14.986328 z M 24.984375 14.986328 A 1.0001 1.0001 0 0 0 24 16 L 24 23 A 1.0001 1.0001 0 1 0 26 23 L 26 16 A 1.0001 1.0001 0 0 0 24.984375 14.986328 z M 28.984375 14.986328 A 1.0001 1.0001 0 0 0 28 16 L 28 19 A 1.0001 1.0001 0 1 0 30 19 L 30 16 A 1.0001 1.0001 0 0 0 28.984375 14.986328 z" />
                 </svg>
               </IconButton>
               <Text align="center" weight="bold" size="2">
@@ -223,7 +225,7 @@ export const ExampleMusicApp = () => (
               { frequency: '8K', value: 65 },
               { frequency: '16K', value: 68 },
             ].map((slider) => (
-              <Flex direction="column" align="center" gap="2" width="5">
+              <Flex direction="column" align="center" gap="2" width="5" key={slider.frequency}>
                 <Slider
                   size="2"
                   radius="small"
@@ -289,7 +291,618 @@ export const ExampleMusicApp = () => (
         </Flex>
       </Card>
     </Flex>
+
+    <Flex shrink="0" gap="6" direction="column" style={{ width: 1312, paddingTop: 100 }}>
+      <Card size="4" style={{ height: 900 }}>
+        <Flex justify="between" position="absolute" m="4" top="0" left="0" width="8">
+          <Box
+            width="3"
+            height="3"
+            style={{
+              background: '#FF5F57',
+              boxShadow: 'inset 0 0 0 1px var(--gray-a5)',
+              borderRadius: '100%',
+            }}
+          />
+          <Box
+            width="3"
+            height="3"
+            style={{
+              background: '#FDBB2E',
+              boxShadow: 'inset 0 0 0 1px var(--gray-a5)',
+              borderRadius: '100%',
+            }}
+          />
+          <Box
+            width="3"
+            height="3"
+            style={{
+              background: '#27C840',
+              boxShadow: 'inset 0 0 0 1px var(--gray-a5)',
+              borderRadius: '100%',
+            }}
+          />
+        </Flex>
+
+        <Box height="6" />
+
+        <Box mb="4">
+          <Flex align="baseline" justify="between">
+            <Heading as="h2" size="6">
+              Your favorites
+            </Heading>
+
+            <Link size="2" weight="bold" color="gray">
+              Show all
+            </Link>
+          </Flex>
+        </Box>
+
+        <Grid columns="5" gap="5" mb="7">
+          {songs.slice(2, 7).map((song) => (
+            <AlbumCard album={song.album} artist={song.artist} cover={song.cover} />
+          ))}
+        </Grid>
+
+        <Box mb="4">
+          <Flex align="baseline" justify="between">
+            <Heading as="h2" size="6">
+              Made for you
+            </Heading>
+
+            <Link size="2" weight="bold" color="gray">
+              Show all
+            </Link>
+          </Flex>
+        </Box>
+
+        <Grid columns="5" gap="5" mb="7">
+          {songs.slice(0, 5).map((song) => (
+            <AlbumCard album={song.album} artist={song.artist} cover={song.cover} />
+          ))}
+        </Grid>
+
+        <Box mb="4">
+          <Flex align="baseline" justify="between">
+            <Heading as="h2" size="6">
+              Made for you
+            </Heading>
+
+            <Link size="2" weight="bold" color="gray">
+              Show all
+            </Link>
+          </Flex>
+        </Box>
+
+        <Grid columns="5" gap="5">
+          {songs.slice(8, 13).map((song) => (
+            <AlbumCard album={song.album} artist={song.artist} cover={song.cover} />
+          ))}
+        </Grid>
+
+        <Box
+          position="absolute"
+          left="0"
+          right="0"
+          bottom="0"
+          mb="5"
+          height="9"
+          style={{
+            borderRadius: '100px',
+            overflow: 'hidden',
+            boxShadow: 'var(--shadow-2), var(--shadow-3)',
+            marginLeft: 200,
+            marginRight: 200,
+          }}
+        >
+          <Theme asChild appearance="invert">
+            <Box
+              width="100%"
+              height="100%"
+              position="absolute"
+              style={{
+                overflow: 'hidden',
+                // borderRadius: 'var(--br-5)',
+                borderRadius: '100px',
+                backgroundColor: 'var(--gray-a11)',
+                filter: 'saturate(0.5) brightness(1.1)',
+                backdropFilter: 'blur(24px)',
+              }}
+            />
+          </Theme>
+          <Flex height="100%" justify="between" position="relative">
+            <Flex gap="2" align="center" p="3">
+              <IconButton radius="full" size="3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentcolor"
+                  viewBox="0 0 30 30"
+                  width="20"
+                  height="20"
+                  style={{ marginRight: -2 }}
+                >
+                  <path d="M 6 3 A 1 1 0 0 0 5 4 A 1 1 0 0 0 5 4.0039062 L 5 15 L 5 25.996094 A 1 1 0 0 0 5 26 A 1 1 0 0 0 6 27 A 1 1 0 0 0 6.5800781 26.8125 L 6.5820312 26.814453 L 26.416016 15.908203 A 1 1 0 0 0 27 15 A 1 1 0 0 0 26.388672 14.078125 L 6.5820312 3.1855469 L 6.5800781 3.1855469 A 1 1 0 0 0 6 3 z" />
+                </svg>
+              </IconButton>
+
+              <Flex align="center" gap="1">
+                <IconButton color="gray" variant="ghost" radius="full" size="2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 30 30"
+                    width="20"
+                    height="20"
+                    fill="currentcolor"
+                    fillOpacity={0.7}
+                  >
+                    <path d="M 21 5 L 21 8 L 18.675781 8 C 16.670448 8 14.796256 9.00408 13.683594 10.671875 L 12 13.197266 L 10.316406 10.671875 C 9.2045791 9.0047337 7.329552 8 5.3242188 8 L 3 8 A 1.0001 1.0001 0 1 0 3 10 L 5.3242188 10 C 6.6628853 10 7.910171 10.668391 8.6523438 11.78125 L 10.798828 15 L 8.6523438 18.21875 C 7.910171 19.331609 6.6628854 20 5.3242188 20 L 3 20 A 1.0001 1.0001 0 1 0 3 22 L 5.3242188 22 C 7.3295521 22 9.2045792 20.995266 10.316406 19.328125 L 12 16.802734 L 13.683594 19.328125 C 14.796256 20.99592 16.670448 22 18.675781 22 L 21 22 L 21 25 L 27 21 L 21 17 L 21 20 L 18.675781 20 C 17.337115 20 16.090994 19.332955 15.347656 18.21875 L 13.201172 15 L 15.347656 11.78125 C 16.090994 10.667045 17.337115 10 18.675781 10 L 21 10 L 21 13 L 27 9 L 21 5 z" />
+                  </svg>
+                </IconButton>
+                <IconButton color="gray" variant="ghost" radius="full" size="2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 30 30"
+                    fill="currentcolor"
+                    fillOpacity={0.7}
+                    width="20"
+                    height="20"
+                  >
+                    <path d="M 20 4 L 20 7 L 8 7 C 4.6983746 7 2 9.6983746 2 13 A 1.0001 1.0001 0 1 0 4 13 C 4 10.779625 5.7796254 9 8 9 L 20 9 L 20 12 L 27 8 L 20 4 z M 26.984375 15.986328 A 1.0001 1.0001 0 0 0 26 17 C 26 19.220375 24.220375 21 22 21 L 10 21 L 10 18 L 3 22 L 10 26 L 10 23 L 22 23 C 25.301625 23 28 20.301625 28 17 A 1.0001 1.0001 0 0 0 26.984375 15.986328 z" />
+                  </svg>
+                </IconButton>
+              </Flex>
+            </Flex>
+
+            <Flex align="center" gap="3">
+              <IconButton color="gray" variant="ghost" radius="full" size="2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentcolor"
+                  fillOpacity={0.7}
+                  viewBox="0 0 30 30"
+                  width="20"
+                  height="20"
+                  style={{ marginRight: 2 }}
+                >
+                  <path d="M 14 6 A 1 1 0 0 0 13.408203 6.1953125 A 1 1 0 0 0 13.378906 6.2167969 L 2.4609375 14.15625 A 1 1 0 0 1 2.4589844 14.158203 L 2.4433594 14.169922 A 1 1 0 0 0 2 15 A 1 1 0 0 0 2.4492188 15.833984 L 13.40625 23.804688 A 1 1 0 0 0 14 24 A 1 1 0 0 0 15 23 A 1 1 0 0 0 15 22.996094 L 15 16.234375 L 25.40625 23.804688 A 1 1 0 0 0 26 24 A 1 1 0 0 0 27 23 A 1 1 0 0 0 27 22.996094 L 27 15 L 27 7.0039062 A 1 1 0 0 0 27 7 A 1 1 0 0 0 26 6 A 1 1 0 0 0 25.40625 6.1953125 A 1 1 0 0 0 25.378906 6.2167969 L 15 13.763672 L 15 7.0039062 A 1 1 0 0 0 15 7 A 1 1 0 0 0 14 6 z" />
+                </svg>
+              </IconButton>
+
+              <Flex align="center" gap="3">
+                <img
+                  src={songs[9].cover}
+                  width="48"
+                  height="48"
+                  style={{ borderRadius: 'var(--br-2)' }}
+                />
+                <Box>
+                  <Text size="1" as="div" weight="bold">
+                    {songs[9].name}
+                  </Text>
+                  <Text size="1" as="div" color="gray" mb="2">
+                    {songs[9].artist} – {songs[9].album}
+                  </Text>
+
+                  <Box
+                    position="relative"
+                    height="1"
+                    style={{
+                      backgroundColor: 'var(--gray-a5)',
+                      borderRadius: 'var(--br-1)',
+                      width: 320,
+                    }}
+                  >
+                    <Box
+                      position="absolute"
+                      height="1"
+                      width="9"
+                      style={{ borderRadius: 'var(--br-1)', backgroundColor: 'var(--gray-a9)' }}
+                    />
+                    <Box position="absolute" top="0" right="0" style={{ marginTop: -28 }}>
+                      <Text size="1" color="gray">
+                        0:58 / {songs[9].length}
+                      </Text>
+                    </Box>
+                  </Box>
+                </Box>
+              </Flex>
+
+              <IconButton color="gray" variant="ghost" radius="full" size="2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 30 30"
+                  width="20"
+                  height="20"
+                  fill="currentcolor"
+                  fillOpacity={0.7}
+                  style={{ marginLeft: 2 }}
+                >
+                  <path d="M 4 6 A 1 1 0 0 0 3 7 A 1 1 0 0 0 3 7.0039062 L 3 15 L 3 22.996094 A 1 1 0 0 0 3 23 A 1 1 0 0 0 4 24 A 1 1 0 0 0 4.5917969 23.804688 L 4.59375 23.804688 A 1 1 0 0 0 4.6210938 23.783203 L 15 16.236328 L 15 22.996094 A 1 1 0 0 0 15 23 A 1 1 0 0 0 16 24 A 1 1 0 0 0 16.591797 23.804688 L 16.59375 23.804688 A 1 1 0 0 0 16.621094 23.783203 L 27.541016 15.841797 A 1 1 0 0 0 28 15 A 1 1 0 0 0 27.556641 14.169922 L 16.59375 6.1953125 A 1 1 0 0 0 16 6 A 1 1 0 0 0 15 7 A 1 1 0 0 0 15 7.0039062 L 15 13.765625 L 4.59375 6.1953125 A 1 1 0 0 0 4 6 z" />
+                </svg>
+              </IconButton>
+            </Flex>
+
+            <Flex align="center" gap="2" p="5">
+              <VolumeNoneIcon color="var(--gray-a9)" />
+              <Slider
+                defaultValue={[80]}
+                variant="soft"
+                color="gray"
+                radius="full"
+                size="2"
+                style={{ width: 80 }}
+              />
+              <VolumeMaxIcon color="var(--gray-a9)" />
+            </Flex>
+          </Flex>
+        </Box>
+      </Card>
+
+      <Flex gap="6" shrink="0">
+        <Flex gap="6" shrink="0" direction="column" style={{ width: 416 }}>
+          <Card size="3">
+            <Box height="7">
+              <Heading as="h3" size="5" trim="both">
+                Settings
+              </Heading>
+            </Box>
+
+            <Flex direction="column" gap="5">
+              <Label>
+                <Flex justify="between" gap="5">
+                  <Box>
+                    <Text as="div" size="2" weight="bold" mb="1">
+                      Offline mode
+                    </Text>
+                    <Text as="div" color="gray" size="1">
+                      Only play what you’ve downloaded
+                    </Text>
+                  </Box>
+
+                  <Switch radius="full" defaultChecked mt="2" />
+                </Flex>
+              </Label>
+
+              <Label>
+                <Flex justify="between" gap="5">
+                  <Box>
+                    <Text as="div" size="2" weight="bold" mb="1">
+                      Automatic downloads
+                    </Text>
+                    <Text as="div" color="gray" size="1">
+                      Automatically download music when added to your library
+                    </Text>
+                  </Box>
+
+                  <Switch radius="full" mt="2" />
+                </Flex>
+              </Label>
+
+              <Label>
+                <Flex justify="between" gap="5">
+                  <Box>
+                    <Text as="div" size="2" weight="bold" mb="1">
+                      Lossless audio
+                    </Text>
+                    <Text as="div" color="gray" size="1">
+                      Preserve every detail of the original audio, but consume significantly more
+                      data
+                    </Text>
+                  </Box>
+
+                  <Switch radius="full" mt="2" />
+                </Flex>
+              </Label>
+
+              <Label>
+                <Flex justify="between" gap="5">
+                  <Box>
+                    <Text as="div" size="2" weight="bold" mb="1">
+                      Spatial audio
+                    </Text>
+                    <Text as="div" color="gray" size="1">
+                      Enhancing the perception of audio in space
+                    </Text>
+                  </Box>
+
+                  <Switch radius="full" mt="2" />
+                </Flex>
+              </Label>
+
+              <Label>
+                <Flex justify="between" gap="5">
+                  <Box>
+                    <Text as="div" size="2" weight="bold" mb="1">
+                      Explicit content
+                    </Text>
+                    <Text as="div" color="gray" size="1">
+                      Show songs with profanities
+                    </Text>
+                  </Box>
+
+                  <Switch radius="full" defaultChecked mt="2" />
+                </Flex>
+              </Label>
+
+              <Label>
+                <Flex justify="between" gap="5">
+                  <Box>
+                    <Text as="div" size="2" weight="bold" mb="1">
+                      Normalize volume
+                    </Text>
+                    <Text as="div" color="gray" size="1">
+                      Set the same volume level for all tracks
+                    </Text>
+                  </Box>
+
+                  <Switch radius="full" defaultChecked mt="2" />
+                </Flex>
+              </Label>
+
+              <Box>
+                <Flex justify="between" gap="5">
+                  <Box>
+                    <Text as="div" size="2" weight="bold" mb="1">
+                      Maximum volume
+                    </Text>
+                    <Text as="div" color="gray" size="1">
+                      Limit the maximum volume to protect hearing
+                    </Text>
+                  </Box>
+                </Flex>
+
+                <Flex align="center" gap="2" mt="3">
+                  <Box asChild width="5">
+                    <Text color="gray" size="1">
+                      0%
+                    </Text>
+                  </Box>
+                  <Box grow="1">
+                    <Slider radius="full" size="1" defaultValue={[80]} />
+                  </Box>
+                  <Box asChild width="6">
+                    <Text color="gray" size="1">
+                      100%
+                    </Text>
+                  </Box>
+                </Flex>
+              </Box>
+
+              <Box>
+                <Flex justify="between" gap="5">
+                  <Box>
+                    <Text as="div" size="2" weight="bold">
+                      Crossfade
+                    </Text>
+                    <Text as="div" color="gray" size="1">
+                      Smoothly fade out into the next song.
+                    </Text>
+                  </Box>
+                </Flex>
+
+                <Flex align="center" gap="2" mt="3">
+                  <Box asChild width="5">
+                    <Text color="gray" size="1">
+                      Off
+                    </Text>
+                  </Box>
+                  <Box grow="1">
+                    <Slider radius="full" size="1" defaultValue={[0]} />
+                  </Box>
+                  <Box asChild width="6">
+                    <Text color="gray" size="1">
+                      10s
+                    </Text>
+                  </Box>
+                </Flex>
+              </Box>
+            </Flex>
+          </Card>
+        </Flex>
+
+        <Box shrink="0" style={{ width: 416 }}>
+          <Card size="3">
+            <Flex m="4" align="center" justify="center" position="relative">
+              <Box
+                asChild
+                position="absolute"
+                mt="3"
+                style={{ filter: 'blur(32px) brightness(1.5) saturate(2)', opacity: 0.5 }}
+              >
+                <img
+                  width="200"
+                  height="200"
+                  src="https://media.pitchfork.com/photos/59d6ab987855fa6c9a16f2f1/1:1/w_320,c_limit/the%20ooz_king%20krule.jpg"
+                  style={{ borderRadius: 'var(--br-3)' }}
+                />
+              </Box>
+              <Box asChild position="relative">
+                <img
+                  width="200"
+                  height="200"
+                  src="https://media.pitchfork.com/photos/59d6ab987855fa6c9a16f2f1/1:1/w_320,c_limit/the%20ooz_king%20krule.jpg"
+                  style={{ borderRadius: 'var(--br-3)' }}
+                />
+              </Box>
+            </Flex>
+
+            <Box mt="6">
+              <Flex mb="4" align="center" justify="center">
+                {[1, 2, 3, 4].map((i) => (
+                  <svg
+                    key={i}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 30 30"
+                    width="20"
+                    height="20"
+                    fill="currentcolor"
+                    color="var(--accent-9)"
+                  >
+                    <path d="M15.765,2.434l2.875,8.512l8.983,0.104c0.773,0.009,1.093,0.994,0.473,1.455l-7.207,5.364l2.677,8.576 c0.23,0.738-0.607,1.346-1.238,0.899L15,22.147l-7.329,5.196c-0.63,0.447-1.468-0.162-1.238-0.899l2.677-8.576l-7.207-5.364 c-0.62-0.461-0.3-1.446,0.473-1.455l8.983-0.104l2.875-8.512C14.482,1.701,15.518,1.701,15.765,2.434z" />
+                  </svg>
+                ))}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 60 60"
+                  width="20"
+                  height="20"
+                  fill="currentcolor"
+                  color="var(--accent-9)"
+                >
+                  <path d="M29.887 3.926A2 2 0 0 0 28.078 5.3l-5.41 16.535-17.395.035a2 2 0 0 0-1.175 3.613l14.054 10.254-5.343 16.559a2 2 0 0 0 3.074 2.234l14.094-10.199 14.097 10.2a2 2 0 0 0 3.075-2.235l-5.344-16.559 14.054-10.254a2 2 0 0 0-1.175-3.613l-17.399-.035L31.88 5.301a2 2 0 0 0-1.992-1.375Zm.09 8.433 3.957 12.098a2 2 0 0 0 1.898 1.379l12.727.023-10.282 7.5a2 2 0 0 0-.722 2.23l3.91 12.118-10.317-7.465a2 2 0 0 0-2.343 0l-10.309 7.461 3.906-12.113a2 2 0 0 0-.722-2.23l-10.281-7.5 12.726-.024a2.001 2.001 0 0 0 1.895-1.379l3.957-12.098Z" />
+                  <path d="M29.887 3.926A2 2 0 0 0 28.078 5.3l-5.41 16.535-17.395.035a2 2 0 0 0-1.175 3.613l14.054 10.254-5.343 16.559a2 2 0 0 0 3.074 2.234l14.094-10.199 14.097 10.2a2 2 0 0 0 3.075-2.235l-5.344-16.559 14.054-10.254a2 2 0 0 0-1.175-3.613l-17.399-.035L31.88 5.301a2 2 0 0 0-1.992-1.375Zm.09 8.433 3.957 12.098a2 2 0 0 0 1.898 1.379l12.727.023-10.282 7.5a2 2 0 0 0-.722 2.23l3.91 12.118-10.317-7.465a2 2 0 0 0-2.343 0l-10.309 7.461 3.906-12.113a2 2 0 0 0-.722-2.23l-10.281-7.5 12.726-.024a2.001 2.001 0 0 0 1.895-1.379l3.957-12.098Z" />
+                  <path d="M28.805 40.242a2 2 0 0 1 1.172-.379V12.359L26.02 24.457a2 2 0 0 1-1.895 1.379l-12.726.023 10.28 7.5a2 2 0 0 1 .723 2.23l-3.906 12.114 10.309-7.46Z" />
+                </svg>
+              </Flex>
+
+              <Heading align="center" as="h3" size="4" mb="2">
+                King Krule – The OOZ
+              </Heading>
+
+              <Text align="center" as="p" color="gray" size="2" mb="4">
+                A dark and introspective album that showcases King Krule’s distinctive blend of
+                genres, and delivering hauntingly raw and poetic lyrics.
+              </Text>
+
+              <Flex justify="center" gap="3">
+                <Button>Listen Now</Button>
+                <IconButton variant="soft">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 30 30"
+                    width="20"
+                    height="20"
+                    fill="currentcolor"
+                  >
+                    <path d="M 9.5449219 3 C 5.3895807 3 2 6.3895806 2 10.544922 C 2 14.283156 4.9005496 18.084723 7.6601562 21.119141 C 10.419763 24.153558 13.171875 26.369141 13.171875 26.369141 A 1.0001 1.0001 0 0 0 13.197266 26.388672 C 13.642797 26.725148 14.201794 26.943857 14.808594 26.984375 A 1.0001 1.0001 0 0 0 15 27 A 1.0001 1.0001 0 0 0 15.189453 26.984375 A 1.0001 1.0001 0 0 0 15.199219 26.982422 C 15.802918 26.940449 16.359155 26.723674 16.802734 26.388672 A 1.0001 1.0001 0 0 0 16.828125 26.369141 C 16.828125 26.369141 19.580237 24.153558 22.339844 21.119141 C 25.099451 18.084722 28 14.283156 28 10.544922 C 28 6.3895806 24.610419 3 20.455078 3 C 17.841043 3 15.989939 4.4385487 15 5.4570312 C 14.010061 4.4385487 12.158957 3 9.5449219 3 z M 9.5449219 5 C 12.276127 5 13.937826 7.2424468 14.103516 7.4746094 A 1.0001 1.0001 0 0 0 14.994141 8.0136719 A 1.0001 1.0001 0 0 0 15.017578 8.0136719 A 1.0001 1.0001 0 0 0 15.041016 8.0117188 A 1.0001 1.0001 0 0 0 15.117188 8.0058594 A 1.0001 1.0001 0 0 0 15.892578 7.4785156 C 16.049938 7.2575052 17.716133 5 20.455078 5 C 23.529737 5 26 7.4702629 26 10.544922 C 26 13.147688 23.499768 16.870104 20.859375 19.773438 C 18.227966 22.666891 15.607768 24.780451 15.589844 24.794922 C 15.414236 24.925626 15.219097 25 15 25 C 14.780903 25 14.585764 24.92563 14.410156 24.794922 C 14.392236 24.780452 11.772034 22.666891 9.140625 19.773438 C 6.5002316 16.870105 4 13.147688 4 10.544922 C 4 7.4702629 6.470263 5 9.5449219 5 z" />
+                  </svg>
+                </IconButton>
+              </Flex>
+            </Box>
+          </Card>
+        </Box>
+
+        <Box shrink="0" style={{ width: 416 }}>
+          <Card size="3">
+            <Box height="7" mb="2">
+              <Flex align="center" justify="between">
+                <Heading as="h3" size="5" trim="both">
+                  Create a playlist
+                </Heading>
+
+                <Flex gap="4">
+                  <Button m="-3" size="2" variant="ghost">
+                    Start over
+                  </Button>
+                  <Button m="-3" size="2" variant="ghost">
+                    Next
+                  </Button>
+                </Flex>
+              </Flex>
+            </Box>
+
+            <Box>
+              <Flex gap="2" wrap="wrap">
+                {[
+                  'Pop',
+                  'Rock',
+                  'Hip-Hop',
+                  'R&B',
+                  'Country',
+                  'Jazz',
+                  'Blues',
+                  'Electronic',
+                  'Experimental',
+                  'Reggae',
+                  'Ska',
+                  'Grunge',
+                  'Psychedelic',
+                  'Post-Rock',
+                  'Progressive Rock',
+                  'Dream Pop',
+                  'Ambient',
+                  'Classical',
+                  'Trip-Hop',
+                  'Gospel',
+                  'Folk',
+                  'Indie',
+                  'Alternative',
+                  'Punk',
+                  'Metal',
+                  'Funk',
+                  'Soul',
+                  'Dance',
+                  'Techno',
+                  'Acoustic',
+                  'House',
+                  'Dubstep',
+                  'Latin',
+                  'Salsa',
+                  'K-pop',
+                ].map((genre) => (
+                  <Button
+                    radius="full"
+                    variant={['Blues', 'Jazz', 'Funk'].includes(genre) ? 'solid' : 'soft'}
+                    key={genre}
+                  >
+                    {genre}
+                  </Button>
+                ))}
+              </Flex>
+            </Box>
+          </Card>
+        </Box>
+      </Flex>
+    </Flex>
   </Flex>
+);
+
+const AlbumCard = ({ album, artist, cover }: { album: string; artist: string; cover: string }) => (
+  <Hover.Root>
+    <Box p="3" m="-3">
+      <Box position="relative" mb="2">
+        <Box position="absolute" inset="0" mt="4" style={{ filter: 'blur(24px)', opacity: 0.2 }}>
+          <AspectRatio ratio={1}>
+            <img src={cover} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </AspectRatio>
+        </Box>
+
+        <Card>
+          <Box style={{ margin: 'calc(var(--card-padding) * -1)', cursor: 'pointer' }}>
+            <AspectRatio ratio={1}>
+              <img src={cover} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </AspectRatio>
+          </Box>
+        </Card>
+
+        <Hover.Show>
+          <Flex gap="2" position="absolute" bottom="0" right="0" m="2">
+            <IconButton radius="full" size="3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentcolor"
+                viewBox="0 0 30 30"
+                width="20"
+                height="20"
+                style={{ marginRight: -2 }}
+              >
+                <path d="M 6 3 A 1 1 0 0 0 5 4 A 1 1 0 0 0 5 4.0039062 L 5 15 L 5 25.996094 A 1 1 0 0 0 5 26 A 1 1 0 0 0 6 27 A 1 1 0 0 0 6.5800781 26.8125 L 6.5820312 26.814453 L 26.416016 15.908203 A 1 1 0 0 0 27 15 A 1 1 0 0 0 26.388672 14.078125 L 6.5820312 3.1855469 L 6.5800781 3.1855469 A 1 1 0 0 0 6 3 z" />
+              </svg>
+            </IconButton>
+          </Flex>
+        </Hover.Show>
+      </Box>
+
+      <Flex direction="column" position="relative" align="start">
+        <Link size="2" weight="bold" color="gray" highContrast style={{ textDecoration: 'none' }}>
+          {album}
+        </Link>
+        <Link size="2" color="gray">
+          {artist}
+        </Link>
+      </Flex>
+    </Box>
+  </Hover.Root>
 );
 
 const songs = [
@@ -388,3 +1001,31 @@ const songs = [
       'https://i.discogs.com/trqSgeVgjiKjDE2pJloIHKL5R6nEJkq8Q-yZQiCEL58/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTMy/NzkyLTE1MDY3NTgw/MzItNzU3NS5qcGVn.jpeg',
   },
 ];
+
+const VolumeMaxIcon = (props: React.ComponentPropsWithoutRef<'svg'>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 30 30"
+    width="20"
+    height="20"
+    fill="currentcolor"
+    fillOpacity={0.7}
+    {...props}
+  >
+    <path d="M 20.037109 5.6464844 A 1.0001 1.0001 0 0 0 19.236328 7.2734375 C 20.963426 9.4832305 22 12.243759 22 15.255859 C 22 18.055119 21.105815 20.636923 19.59375 22.763672 A 1.0001 1.0001 0 1 0 21.222656 23.921875 C 22.962591 21.474623 24 18.4826 24 15.255859 C 24 11.78396 22.799402 8.5851757 20.8125 6.0429688 A 1.0001 1.0001 0 0 0 20.037109 5.6464844 z M 11 7 L 6.7929688 11 L 3 11 C 1.343 11 0 12.343 0 14 L 0 16 C 0 17.657 1.343 19 3 19 L 6.7929688 19 L 11 23 L 11 7 z M 14.738281 8.5917969 A 1.0001 1.0001 0 0 0 14.001953 10.291016 C 15.239451 11.587484 16 13.328154 16 15.255859 C 16 16.979025 15.392559 18.553804 14.380859 19.796875 A 1.0001 1.0001 0 1 0 15.931641 21.058594 C 17.219941 19.475665 18 17.450694 18 15.255859 C 18 12.799565 17.023721 10.559688 15.449219 8.9101562 A 1.0001 1.0001 0 0 0 14.738281 8.5917969 z" />
+  </svg>
+);
+
+const VolumeNoneIcon = (props: React.ComponentPropsWithoutRef<'svg'>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    width="20"
+    height="20"
+    fill="currentcolor"
+    fillOpacity={0.7}
+    {...props}
+  >
+    <path d="M16.3333 4.66669L13.5286 7.33335H11C9.89533 7.33335 9 8.22869 9 9.33335V10.6667C9 11.7714 9.89533 12.6667 11 12.6667H13.5286L16.3333 15.3334V4.66669Z" />
+  </svg>
+);

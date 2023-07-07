@@ -1,4 +1,4 @@
-import { Box, RadixThemesProvider, Theme } from '@radix-ui/themes';
+import { Box, Theme } from '@radix-ui/themes';
 import '@radix-ui/themes/dist/index.css';
 import * as React from 'react';
 
@@ -8,9 +8,7 @@ export default function ExamplePage() {
   return (
     <Box p="9">
       <Theme grayScale="mauve">
-        <RadixThemesProvider>
-          <ExampleDashboard />
-        </RadixThemesProvider>
+        <ExampleDashboard />
       </Theme>
     </Box>
   );

@@ -299,7 +299,7 @@ export const ExampleDashboard = () => (
           <Separator size="4" my="5" />
         </Box>
 
-        <Theme radius="full" style={{ background: 'none' }}>
+        <Theme radius="full" applyBackgroundColor={false}>
           <Flex direction="column">
             <Flex gap="9" align="start" justify="between">
               <Box>
