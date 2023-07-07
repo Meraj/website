@@ -365,7 +365,7 @@ export const ExampleMusicApp = () => (
         <Box mb="4">
           <Flex align="baseline" justify="between">
             <Heading as="h2" size="6">
-              Made for you
+              Your friends liked
             </Heading>
 
             <Link size="2" weight="bold" color="gray">
